@@ -107,19 +107,14 @@ immutable, the model restructures rather than summarizes.
 A screen-free, voice-driven storytelling companion that generates a new
 interactive audio story each time a child asks, tuned to their age.
 
-- **Shipped and paused.** Reached **~300 families at peak**. Built with a single
-  engineer. Paused on single-engineer dependency, compounded by token costs
-  reaching roughly $100/month. Accepted into the **Google Cloud for Startups AI
-  Program**.
-- **Canonical source:** Ankita's own Job Strategy Document (v3, July 2026),
-  which fixes the truthful framing as "~300 families at peak, not 300 paying
-  customers" and states the governing rule — every claim survives diligence.
-  Where that document and the retired Gamma site disagree, the document wins.
-- **The story worth telling** is the one her strategy doc already identifies:
-  *shipping an MVP is different from building a maintainable, measurable,
-  independently operable product.* A product that worked, reached real families,
-  and could not be sustained by one engineer at that unit cost. She wrote a
-  `COST_MODEL.md` for the prototype, which closes the economic half of that loop.
+- **Shipped and paused.** **200+ pilot participants.** Built with a single
+  engineer. Paused when token costs reached roughly $100/month. Accepted into
+  Google's AI startup program.
+- **The story worth telling:** a product that worked and reached real users, but
+  could not be sustained by one engineer at that unit cost. Shipping an MVP is
+  not the same as building something maintainable, measurable, and independently
+  operable. Ankita wrote a `COST_MODEL.md` for the prototype, which closes the
+  economic half of that argument.
 - **Also on disk:** a local prototype (`project-1`) — PRD, `ARCHITECTURE.md`,
   `COST_MODEL.md`, a runnable single-file MVP, three visual directions — plus
   substantial PM artifacts (PRDs, architecture diagrams, VOC research, decks).
@@ -130,7 +125,13 @@ interactive audio story each time a child asks, tuned to their age.
 ### Product Work
 
 A non-repo section for professional roles and shipped outcomes, in the manner of
-Kemler's "Built at Google". Sourced from the Job Strategy Document (v3).
+Kemler's "Built at Google".
+
+> **UNVERIFIED — DO NOT BUILD FROM THIS TABLE.** The figures below came from a
+> document found in a Drive account belonging to someone other than Ankita.
+> Ankita has not confirmed the work history is hers. Nothing here ships until
+> she supplies these details directly or confirms this table. Retained only so
+> the shape of the section is clear.
 
 | Role | Proof |
 |---|---|
@@ -226,27 +227,25 @@ both themes, keyboard-navigable throughout.
 
 The site carries no number it cannot source. Current status:
 
-**Governing rule**, adopted from the Job Strategy Document: *every claim
-survives diligence.* The site states nothing Ankita could not defend in a
-reference check.
+**Governing rule:** every claim survives diligence. The site states nothing
+Ankita could not defend in a reference check.
 
 | Claim | Status |
 |---|---|
-| ~300 families at peak | **Use.** Canonical figure from the Job Strategy Document (v3), where it is explicitly marked the truthful framing. Phrase as "families reached", never "paying customers". |
-| Paused on single-engineer dependency | **Use.** Strategy doc, corroborated directly by Ankita. |
+| 200+ pilot participants | **Use.** Chosen by Ankita 2026-09-20 as the figure of record. Phrase as participants or users reached, never "paying customers". |
 | Token costs reached ~$100/month | **Use.** Stated directly; verifiable from billing records. |
-| Google Cloud for Startups AI Program | **Use.** Strategy doc. Use this exact program name. |
 | Built with one engineer | **Use.** Stated directly by Ankita. |
-| NetApp, Lacework, Panzura, Discord figures | **Use.** Strategy doc. |
+| Google AI startup program | **Use.** Confirmed by Ankita. Confirm the program's exact name before publishing — it is trivially checkable. |
 | Refusal gate: 0.467 vs 0.454 | **Use.** Measured, recorded in the Influencer Bot README. |
-| 92% story completion | **Hold.** Appears on the retired Gamma site but not in the strategy doc. Restore only with a source. |
-| 200+ pilot participants | **Superseded** by ~300 families. Do not use both. |
+| 92% story completion | **Hold** pending a source. Recoverable from LangSmith or analytics if either still has data. |
 | COPPA / GDPR-K | **Decided 2026-09-20.** The site says *"designed for COPPA and GDPR-K compliance."* Never "certified", never "100%" — certification implies a third-party audit that would have to be produced on request. The reworded phrasing keeps full credit for the engineering (no data stored, privacy-first design) while claiming nothing that requires a document. |
 
-**Where sources conflict** — the Gamma site, this spec, and Ankita's recollection
-— the Job Strategy Document is authoritative. It is the most recent considered
-pass, it was reviewed with her coach, and it was written under the diligence
-rule.
+**Where sources conflict, Ankita decides.** Three different figures for
+Storytime's reach surfaced during this design — 200+ pilot participants (the
+retired Gamma site), ~100 testers with ~30 regular users (recollection), and
+~300 families (a document of disputed provenance). Ankita selected 200+ on
+2026-09-20. Only one figure appears on the site; the others are not footnoted,
+hedged, or combined.
 
 **Where to recover usage data**, in order of durability: LLM provider billing
 dashboards (Gemini/Google AI Studio, OpenAI); billing receipts in email;
