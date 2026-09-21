@@ -65,6 +65,14 @@ questions grounded strictly in the document text.
   eight files including `prompt-injection.test.ts`.
 - **Documents:** a PRD covering grounding strategy, hallucination guardrails,
   evaluation strategy, and production-readiness criteria.
+- **Evaluation — lead with this.** Per the resume: human plus automated
+  Helpful/Honest/Harmless evaluation using golden datasets, SME-scored rubrics,
+  LLM-as-a-Judge, precision/recall and BLEU/ROUGE; alpha-to-GA thresholds
+  defined for accuracy, safety, hallucination and task completion; logging and
+  replay for regression testing. This is the most senior thing in the entire
+  portfolio — most PMs cannot describe an eval harness they specified
+  themselves, and it maps directly onto the "AI evaluation and observability"
+  roles being targeted.
 - **Currently:** inside the public fork `Ankita301/dev-os`, at `contactiq/`
   (the directory name is missing an `r`; fixed on extraction).
 
@@ -107,9 +115,20 @@ immutable, the model restructures rather than summarizes.
 A screen-free, voice-driven storytelling companion that generates a new
 interactive audio story each time a child asks, tuned to their age.
 
-- **Shipped and paused.** **200+ pilot participants.** Built with a single
-  engineer. Paused when token costs reached roughly $100/month. Accepted into
-  Google's AI startup program.
+- **Shipped and paused.** Apr 2024 – Aug 2025, as **AI Product Lead /
+  Cofounder**. **200+ pilot participants.** Built with a single engineer. Paused
+  when token costs reached roughly $100/month. **Google Cloud for Startups AI
+  program participant.**
+- **From the resume:** MVP launched in **under 60 days** using LangChain, Gemini
+  2.0 Flash and GCP. Multi-modal orchestration with Universal-2 STT and OpenAI
+  TTS at sub-second latency. **100% retention of early adopters.**
+  COPPA/GDPR-compliant by design.
+- **The technical layer, from the Q&A bank:** trust designed before
+  intelligence — prompt constraints, content guardrails, token caps, retry logic
+  and fallback paths. Latency treated as a product requirement rather than an
+  engineering metric, because in a voice-first experience a slow response breaks
+  the illusion. Tracked story completion, fallback success, prompt failures,
+  off-track responses, and early-user retention.
 - **The story worth telling:** a product that worked and reached real users, but
   could not be sustained by one engineer at that unit cost. Shipping an MVP is
   not the same as building something maintainable, measurable, and independently
@@ -127,20 +146,36 @@ interactive audio story each time a child asks, tuned to their age.
 A non-repo section for professional roles and shipped outcomes, in the manner of
 Kemler's "Built at Google".
 
-Confirmed by Ankita 2026-09-20 as her own work history.
+**Source: Ankita's resume, 09.17.2026 v2** — supplied by her directly. This
+supersedes every earlier figure in this spec. Corroborated by her 61-page
+interview Q&A bank.
 
-| Role | Proof | Dates |
+| Role | Dates | Proof |
 |---|---|---|
-| **NetApp** — Senior PM, StorageGRID | 0→1 AI Data Lakehouse: OEM evaluation across Dremio, Starburst, Trino/Presto, Iceberg. Concept to prototype in ~6 months, 12+ orgs, 30+ stakeholders. | *needed* |
-| **Lacework** | ML and Kubernetes security. KSPM revenue $12M → $20M. Inventor Award. | *needed* |
-| **Panzura** | IAM, regulated and air-gapped deployments. $20M+ first-year revenue; $25M federal opportunity. | *needed* |
-| **SmartBear** | *Details needed — role, scope, outcome.* | *needed* |
-| **Discord RAG assistant** | 37% accuracy improvement, 58% latency reduction, across 10K+ embeddings. | *needed* |
+| **NetApp** — Senior PM, StorageGRID | Aug 2025 – Jul 2026 | 0→1 Data Lakehouse strategy: object storage into in-place analytics at petabyte scale, concept → prototype → customer beta across a 3,000+ customer installed base. Build-vs-partner call and OEM selection **in 90 days**, compressing a multi-year build to under one year. 30+ stakeholders, 12+ functions, 4 engineering teams. Launched Branch Buckets in StorageGRID 12.0 — 15% adoption, isolated AI/ML experimentation on 10+ PB without duplicating object data. |
+| **Storytime AI** — AI Product Lead / Cofounder | Apr 2024 – Aug 2025 | See §3 Storytime. |
+| **Lacework** (acquired by Fortinet) — Senior PM | Nov 2021 – Sep 2023 | **$40M ARR** from launching KSPM for Amazon EKS and Google GKE; 200+ enterprise environments secured; CIS Benchmark compliance. Integrated telemetry and audit logs into the Polygraph ML engine for behavioral drift detection. CIS Policy Preview and Kubernetes Audit Logs adopted by ~80% of Kubernetes customers. **Inventor Award.** |
+| **Panzura** — Senior PM | Jun 2019 – Nov 2021 | **40%+ ARR growth** launching Panzura Filer across Azure, AWS, GCP. Token-based access (IAM, STS) for GovCloud and air-gapped deployments — satellite file transfer for defense customers, **$25M+ ARR** in federal expansion. Onboarding time cut **87%**; 30+ Fortune 500 customers in six months. Mentored 2 PMs. |
+| **SmartBear** — PM, Zephyr Enterprise | Oct 2017 – May 2019 | End-to-end lifecycle for Zephyr Enterprise, contributing to **$35M+ ARR** and 12% YoY growth. Launched Zephyr Maestro, a SaaS DevOps pipeline tool — 100% user adoption within 120 days of proof-of-concept. |
+| **Loadstar Sensors** — PM Intern | Summers 2016 & 2017 | GTM and pricing for Punchforce Sensor; inbound leads +20%. |
 
-Cumulative: **$100M+ ARR touched.**
+**Education:** MBA, Product Management & ML — Santa Clara University, Leavey
+School of Business (Aug 2015 – Dec 2017). BE Computer Science — University of
+Mumbai (2007 – 2010).
 
-Dates are required before this section can be built — a work-history section
-without them reads as evasive, and a reader checks them against LinkedIn anyway.
+Cumulative: **$100M+ ARR delivered.**
+
+**Positioning line**, from the resume summary: *Product Leader with 10+ years
+across AI/data infrastructure, enterprise storage, cloud platforms and
+security.* The sharper interview version, from the Q&A bank: *I like building at
+the intersection of data, infrastructure, security, and AI.*
+
+**The through-line worth putting on the About page**, stated in her own Q&A
+bank: Panzura taught her how data is stored and governed, Lacework how it is
+secured and monitored, Storytime how AI systems consume and interact with data,
+and NetApp brought it together around activating enterprise data for AI at
+scale. That is a coherent ten-year arc, not a list of jobs — and it is the
+strongest argument the site can make.
 
 **Positioning line**, taken verbatim from the strategy doc so the site, resume,
 and LinkedIn agree: *"I build secure, grounded, and production-ready AI products
@@ -230,14 +265,34 @@ The site carries no number it cannot source. Current status:
 **Governing rule:** every claim survives diligence. The site states nothing
 Ankita could not defend in a reference check.
 
+**Source of record: the resume (09.17.2026 v2)**, corroborated by the 61-page
+interview Q&A bank. Both are Ankita's own, current, and written to be defended
+under questioning. Where anything conflicts with them, they win.
+
 | Claim | Status |
 |---|---|
-| 200+ pilot participants | **Use.** Chosen by Ankita 2026-09-20 as the figure of record. Phrase as participants or users reached, never "paying customers". |
+| All Product Work figures (§3) | **Use.** Resume, 09.17.2026 v2. |
+| Storytime: 100% retention of early adopters | **Use.** Resume. |
+| Storytime: MVP in under 60 days | **Use.** Resume. |
+| Google Cloud for Startups AI program **participant** | **Use.** Resume wording. "Participant", not "selected" or "accepted" — the resume is the more careful phrasing and it is the checkable one. |
+| 200+ pilot participants | **Use.** Ankita's decision, 2026-09-20. See the note below. |
 | Token costs reached ~$100/month | **Use.** Stated directly; verifiable from billing records. |
 | Built with one engineer | **Use.** Stated directly by Ankita. |
-| Google AI startup program | **Use.** Confirmed by Ankita. Confirm the program's exact name before publishing — it is trivially checkable. |
 | Refusal gate: 0.467 vs 0.454 | **Use.** Measured, recorded in the Influencer Bot README. |
 | 92% story completion | **Hold** pending a source. Recoverable from LangSmith or analytics if either still has data. |
+
+**Note on the Storytime user count.** Neither the resume nor the 61-page Q&A
+bank states one. The Q&A bank — the document written specifically to survive
+hostile questioning — deliberately uses qualitative framing: *strong early
+engagement, retained early adopters, selected by Google for Startups.* The
+resume's only quantitative claim is 100% retention of early adopters.
+
+That is worth noticing. In the two artifacts Ankita prepared for the most
+scrutiny, she chose not to put a user number on Storytime. The site may
+reasonably follow the same instinct. "200+ pilot participants" stands because
+she chose it, but pairing it with "100% retention of early adopters" invites the
+obvious question — 100% of how many? Either use the retention claim alone, or be
+ready with both denominators.
 | COPPA / GDPR-K | **Decided 2026-09-20.** The site says *"designed for COPPA and GDPR-K compliance."* Never "certified", never "100%" — certification implies a third-party audit that would have to be produced on request. The reworded phrasing keeps full credit for the engineering (no data stored, privacy-first design) while claiming nothing that requires a document. |
 
 **Where sources conflict, Ankita decides.** Three different figures for
@@ -304,9 +359,19 @@ new site is proven, then redirect to `/projects/storytime`.
    Storytime files on the connected account; shared folders are unrelated
    material from 2013–2022. Unblocks when the folder is downloaded locally or
    shared with the connected account. Everything else proceeds.
-2. **Product Work** — roles confirmed as Ankita's own (NetApp, Lacework,
-   Panzura, SmartBear, Discord). Still needed: **employment dates for all five**,
-   and **SmartBear's role, scope and outcome**, which no source on hand covers.
+2. ~~Product Work~~ — **resolved** from the resume (09.17.2026 v2). Roles,
+   dates, figures and education all captured in §3.
+
+2a. **Two projects to decide on.**
+   - **Discord RAG Assistant** is on the resume as **Live, launched 2025** —
+     LangChain, Pinecone, DeepSeek, Postgres, AWS; 37% accuracy improvement, 58%
+     latency reduction, 60% lower mentor workload. A live product with three
+     hard numbers is strong card material and it is not currently in the site
+     plan. Recommend adding it.
+   - **Influencer Bot does not appear on the resume at all**, yet its README
+     contains the single best piece of technical writing in the collection (the
+     measured refusal gate). Either it earns a place on the resume too, or its
+     absence there is a deliberate call worth confirming before it gets a card.
 3. **Recruiter research** — Ankita asked that the site reflect what recruiters
    currently look for. The strategy doc already carries dated July 2026 market
    findings (Axial Search: 12,397 US AI product postings since Jan 2026;
