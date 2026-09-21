@@ -52,7 +52,7 @@ export const roles: Role[] = [
       "De-risked the bet before it was built: validated with an internal customer running 6 PB, and secured two Fortune 10 banks as beta partners who stayed engaged from MVP onward.",
       "Secured executive investment and alignment across 30+ stakeholders, 12+ functions and 4 engineering teams.",
       "Launched Branch Buckets in StorageGRID 12.0 — isolated AI/ML experimentation on 10+ PB datasets without duplicating the underlying object data. 15% customer adoption.",
-      "Handed the Lakehouse off at strategy, architecture and validated demand. It reaches customers as Open Lakehouse on NetApp — on the session catalogue at NetApp Insight in September 2026, launching in November, after my departure in July.",
+      "It reaches customers as Open Lakehouse on NetApp — on the session catalogue at NetApp Insight, September 2026, with launch in November.",
     ],
     metric: { value: "6 PB", label: "Validated before a line shipped" },
   },
