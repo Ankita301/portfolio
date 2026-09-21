@@ -121,6 +121,32 @@ export const roles: Role[] = [
   },
 ]
 
+/** Pre-PM career. Shown on About only — it closes the timeline without
+ *  competing with the four-layer stack the site actually argues. */
+export const earlier = [
+  {
+    company: "Loadstar Sensors",
+    title: "Product Management Intern",
+    dates: "Summers 2016 & 2017",
+    body:
+      "Smart load-cell sensors. Built GTM and pricing for Punchforce, a new IoT product, and lifted inbound leads 20%. The bridge into product.",
+  },
+  {
+    company: "Aadtech",
+    title: "Management Consultant",
+    dates: "Sep 2012 – Aug 2015",
+    body:
+      "Energy efficiency for air handling units, sold on a guaranteed 30% carbon reduction. Set pricing strategy directly with the CEO — operating profit up 30% a year, sales up 15% quarter on quarter.",
+  },
+  {
+    company: "Godrej & Boyce",
+    title: "Supply Chain Manager",
+    dates: "Jun 2010 – Sep 2012",
+    body:
+      "A $4B manufacturer. Owned sourcing, planning and inventory for IT hardware, software and network serving 25,000+ users, and cut delivery time 30% by fixing the process gaps rather than adding headcount.",
+  },
+]
+
 export const education = [
   {
     school: "Santa Clara University, Leavey School of Business",

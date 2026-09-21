@@ -1,4 +1,4 @@
-import { profile, roles, education, skills } from '../content/profile'
+import { profile, roles, earlier, education, skills } from '../content/profile'
 import { useReveal } from '../components/useReveal'
 
 export default function About() {
@@ -103,6 +103,50 @@ export default function About() {
                   </li>
                 ))}
               </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Earlier — before product */}
+      <section className="reveal" style={{ marginTop: 'clamp(46px, 7vw, 76px)' }}>
+        <h2 className="display" style={{ fontSize: '1.5rem', marginBottom: 8 }}>
+          Before product
+        </h2>
+        <p style={{ color: 'var(--muted)', fontSize: '0.92rem', marginTop: 0, marginBottom: 20, maxWidth: '58ch' }}>
+          Supply chain, then consulting, then an MBA and the move into product. Pricing shows up in
+          all three.
+        </p>
+        <div style={{ borderTop: '1px solid var(--line)' }}>
+          {earlier.map((e) => (
+            <div key={e.company} style={{ borderBottom: '1px solid var(--line)', padding: '20px 0' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '4px 14px',
+                  justifyContent: 'space-between',
+                  alignItems: 'baseline',
+                }}
+              >
+                <div style={{ fontWeight: 600 }}>
+                  {e.company}
+                  <span
+                    style={{
+                      color: 'var(--muted)',
+                      fontWeight: 400,
+                      fontSize: '0.92rem',
+                      marginLeft: 10,
+                    }}
+                  >
+                    {e.title}
+                  </span>
+                </div>
+                <span className="mono" style={{ color: 'var(--muted)' }}>
+                  {e.dates}
+                </span>
+              </div>
+              <p style={{ color: 'var(--muted)', fontSize: '0.92rem', margin: '8px 0 0' }}>{e.body}</p>
             </div>
           ))}
         </div>
