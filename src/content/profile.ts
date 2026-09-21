@@ -80,6 +80,7 @@ export const roles: Role[] = [
     points: [
       "Owned Kubernetes compliance as sole PM. It sold as one bundle with cloud compliance — $40M ARR across the pair, of which Kubernetes was my half.",
       "Launched Kubernetes Security Posture Management for Amazon EKS and Google GKE, securing 200+ enterprise environments to CIS Benchmark compliance.",
+      "Turned CIS Benchmarks from prose into executable Rego/OPA policy, backed by three collector types — node-level DaemonSets, cluster-level via the Kubernetes API, and control-plane collectors — normalized through an agent that tagged KSPM data separately so it never disturbed existing CSPM customers.",
       "Integrated telemetry and audit logs into the Polygraph ML engine, enabling real-time behavioral drift detection and anomaly correlation.",
       "Launched CIS Policy Preview and Kubernetes Audit Logs — adopted by roughly 80% of Kubernetes customers.",
       "Received Lacework's Inventor Award for the Kubernetes compliance and detection work.",
