@@ -133,6 +133,49 @@ export default function ProjectPage() {
         </div>
       </header>
 
+      {p.demo && (
+        <Section label="See it">
+          <div
+            style={{
+              border: '1px solid var(--line)',
+              background: 'var(--surface)',
+              padding: 'clamp(14px, 2.5vw, 22px)',
+            }}
+          >
+            <div
+              style={{
+                position: 'relative',
+                width: '100%',
+                maxWidth: p.demo.vertical ? 330 : '100%',
+                aspectRatio: p.demo.vertical ? '9 / 16' : '16 / 9',
+                marginInline: p.demo.vertical ? 'auto' : undefined,
+                background: 'var(--ink)',
+              }}
+            >
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${p.demo.youtubeId}`}
+                title={`${p.name} demo`}
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
+              />
+            </div>
+            <p
+              style={{
+                color: 'var(--muted)',
+                fontSize: '0.9rem',
+                margin: '16px auto 0',
+                maxWidth: '52ch',
+                textAlign: p.demo.vertical ? 'center' : 'left',
+              }}
+            >
+              {p.demo.caption}
+            </p>
+          </div>
+        </Section>
+      )}
+
       <Section label="What it does">
         <p style={{ color: 'var(--muted)', fontSize: '1.02rem' }}>{p.what}</p>
       </Section>

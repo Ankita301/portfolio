@@ -21,6 +21,8 @@ export type Project = {
   measured: { value: string; label: string; source: string }[]
   /** Required. What does not work, and why that is the interesting part. */
   knownGaps: string[]
+  /** A working demo, where one exists. Vertical for phone-shot video. */
+  demo?: { youtubeId: string; caption: string; vertical?: boolean }
   links: Link[]
 }
 
@@ -149,6 +151,12 @@ export const projects: Project[] = [
       "That is the real lesson, and it is a product lesson rather than a technical one: shipping an MVP is not the same as building something maintainable, measurable and independently operable.",
       "A cost model exists for the rebuild. The economics have to work at the unit level before it goes live again.",
     ],
+    demo: {
+      youtubeId: "5OZjUtUdbbI",
+      caption:
+        "The product is voice — so watching it is the only honest way to judge it. A child asks, the story is generated and narrated, and the fork waits for an answer.",
+      vertical: true,
+    },
     links: [
       { label: "Repo", href: null, note: "private — code recovery in progress" },
       { label: "Cost model", href: null, note: "in prototype repo" },
