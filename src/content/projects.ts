@@ -115,10 +115,12 @@ export const projects: Project[] = [
     hard:
       "The experience had to feel effortless while the backend orchestrated speech-to-text, LLM prompting, token management, safety filtering, fallback logic, personalization and text-to-speech in near real time. And the users were children — so safety mattered more than novelty, and latency was not an engineering metric but a product requirement. In a voice-first experience, a slow response breaks the spell.",
     how: [
-      "MVP launched in under 60 days on LangChain, Gemini 2.0 Flash and GCP.",
-      "Multi-modal orchestration: Universal-2 for speech-to-text, OpenAI for text-to-speech, tuned for sub-second response.",
+      "React and TypeScript front end, FastAPI back end, MongoDB for session and preference state, Firebase Auth with parent/child/admin roles.",
+      "Gemini 2.0 Flash via LangChain for generation, Universal-2 for speech-to-text, OpenAI for text-to-speech.",
+      "Story generation runs as a three-stage pipeline — start, continue, conclude — rather than one long generation, so a session can branch at each turn without regenerating what came before.",
+      "Narration streams over WebSockets, because waiting for a complete audio file before speaking breaks a voice-first experience.",
       "Trust designed before intelligence — prompt constraints, content guardrails, token caps, retry logic and fallback paths.",
-      "COPPA and GDPR-K compliance designed in from the start: no stored conversation data, parent-gated controls.",
+      "Compliance designed in from the start: COPPA, GDPR-K, IEEE 7000 and UNICEF AI guidance.",
     ],
     decisions: [
       {
@@ -130,6 +132,11 @@ export const projects: Project[] = [
         title: "Latency treated as a product requirement",
         body:
           "Interaction flow was simplified and unnecessary turns removed, specifically to protect response time. Users preferred a fast reliable story over richer branching — tested, not assumed.",
+      },
+      {
+        title: "A story's token budget is split 15 / 70 / 15",
+        body:
+          "Intro gets 15% of the budget, the middle 70%, the conclusion 15%. Without a split, a model given a token cap spends it early and then rushes or truncates the ending — and for a bedtime story the ending is the entire point. Budgeting the arc up front makes pacing a product decision rather than a side effect of where the cap happens to land. It also makes cost per story predictable, which is what a consumer AI product lives or dies on.",
       },
       {
         title: "The AI stays invisible",
@@ -158,6 +165,7 @@ export const projects: Project[] = [
       "Paused, not shipped-and-forgotten. Running it depended on one engineer, and per-story inference cost outran what the product could recover — around $100/month at pilot scale with no revenue.",
       "That is the real lesson, and it is a product lesson rather than a technical one: shipping an MVP is not the same as building something maintainable, measurable and independently operable.",
       "A cost model exists for the rebuild. The economics have to work at the unit level before it goes live again.",
+      "The PRD set an evaluation framework — relevance, age-fit, interactivity, toxicity, quarterly bias audits, fallback logging — with targets of NPS above 40 and hallucination under 5%. Those were the bar, not a measured result. Designing the framework is not the same as running it.",
     ],
     demo: {
       youtubeId: "5OZjUtUdbbI",
