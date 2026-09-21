@@ -261,8 +261,15 @@ export const projects: Project[] = [
     ],
     knownGaps: [
       "Scoped to one community's corpus. Retrieval tuning does not transfer as-is to a different domain.",
+      "Built under NDA for a private cohort, so the running system cannot be demonstrated. The numbers here are mine; the product is not mine to show.",
     ],
-    links: [{ label: "Live", href: null, note: "link to be added" }],
+    links: [
+      {
+        label: "Private",
+        href: null,
+        note: "built under NDA for a partner program — running, not publicly viewable",
+      },
+    ],
   },
 ]
 
