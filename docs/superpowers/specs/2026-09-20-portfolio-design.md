@@ -241,7 +241,7 @@ reference check.
 | Refusal gate: 0.467 vs 0.454 | **Use.** Measured, recorded in the Influencer Bot README. |
 | 92% story completion | **Hold.** Appears on the retired Gamma site but not in the strategy doc. Restore only with a source. |
 | 200+ pilot participants | **Superseded** by ~300 families. Do not use both. |
-| 100% COPPA/GDPR certification | **Reword.** "Certification" implies a third-party audit. Use "designed for COPPA and GDPR-K compliance", which says the same thing about the engineering without claiming an audit. |
+| COPPA / GDPR-K | **Decided 2026-09-20.** The site says *"designed for COPPA and GDPR-K compliance."* Never "certified", never "100%" — certification implies a third-party audit that would have to be produced on request. The reworded phrasing keeps full credit for the engineering (no data stored, privacy-first design) while claiming nothing that requires a document. |
 
 **Where sources conflict** — the Gamma site, this spec, and Ankita's recollection
 — the Job Strategy Document is authoritative. It is the most recent considered
