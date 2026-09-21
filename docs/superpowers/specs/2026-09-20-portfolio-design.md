@@ -107,12 +107,19 @@ immutable, the model restructures rather than summarizes.
 A screen-free, voice-driven storytelling companion that generates a new
 interactive audio story each time a child asks, tuned to their age.
 
-- **Shipped and retired.** ~100 people tested it, ~30 used it regularly, and it
-  was shut down when token costs reached roughly $100/month. Selected for
-  Google's AI Startup Program.
-- **The story worth telling** is the unit economics: a consumer AI product whose
-  per-session inference cost outran what it could recover. She wrote a
-  `COST_MODEL.md` for the prototype, which closes that loop.
+- **Shipped and paused.** Reached **~300 families at peak**. Built with a single
+  engineer. Paused on single-engineer dependency, compounded by token costs
+  reaching roughly $100/month. Accepted into the **Google Cloud for Startups AI
+  Program**.
+- **Canonical source:** Ankita's own Job Strategy Document (v3, July 2026),
+  which fixes the truthful framing as "~300 families at peak, not 300 paying
+  customers" and states the governing rule — every claim survives diligence.
+  Where that document and the retired Gamma site disagree, the document wins.
+- **The story worth telling** is the one her strategy doc already identifies:
+  *shipping an MVP is different from building a maintainable, measurable,
+  independently operable product.* A product that worked, reached real families,
+  and could not be sustained by one engineer at that unit cost. She wrote a
+  `COST_MODEL.md` for the prototype, which closes the economic half of that loop.
 - **Also on disk:** a local prototype (`project-1`) — PRD, `ARCHITECTURE.md`,
   `COST_MODEL.md`, a runnable single-file MVP, three visual directions — plus
   substantial PM artifacts (PRDs, architecture diagrams, VOC research, decks).
@@ -123,7 +130,20 @@ interactive audio story each time a child asks, tuned to their age.
 ### Product Work
 
 A non-repo section for professional roles and shipped outcomes, in the manner of
-Kemler's "Built at Google". **Content not yet gathered** — see §9.
+Kemler's "Built at Google". Sourced from the Job Strategy Document (v3).
+
+| Role | Proof |
+|---|---|
+| **NetApp** — Senior PM, StorageGRID | 0→1 AI Data Lakehouse: OEM evaluation across Dremio, Starburst, Trino/Presto, Iceberg. Concept to prototype in ~6 months, 12+ orgs, 30+ stakeholders. |
+| **Lacework** | ML and Kubernetes security. KSPM revenue $12M → $20M. Inventor Award. |
+| **Panzura** | IAM, regulated and air-gapped deployments. $20M+ first-year revenue; $25M federal opportunity. |
+| **Discord RAG assistant** | 37% accuracy improvement, 58% latency reduction, across 10K+ embeddings. |
+
+Cumulative: **$100M+ ARR touched.**
+
+**Positioning line**, taken verbatim from the strategy doc so the site, resume,
+and LinkedIn agree: *"I build secure, grounded, and production-ready AI products
+over complex enterprise data."*
 
 ---
 
@@ -206,15 +226,27 @@ both themes, keyboard-navigable throughout.
 
 The site carries no number it cannot source. Current status:
 
+**Governing rule**, adopted from the Job Strategy Document: *every claim
+survives diligence.* The site states nothing Ankita could not defend in a
+reference check.
+
 | Claim | Status |
 |---|---|
-| ~100 testers, ~30 regular users | **Use.** Stated directly by Ankita. |
-| Shut down at ~$100/month token cost | **Use.** Stated directly; verifiable from billing records. |
-| Google AI Startup Program | **Use.** Confirmed by Ankita. |
+| ~300 families at peak | **Use.** Canonical figure from the Job Strategy Document (v3), where it is explicitly marked the truthful framing. Phrase as "families reached", never "paying customers". |
+| Paused on single-engineer dependency | **Use.** Strategy doc, corroborated directly by Ankita. |
+| Token costs reached ~$100/month | **Use.** Stated directly; verifiable from billing records. |
+| Google Cloud for Startups AI Program | **Use.** Strategy doc. Use this exact program name. |
+| Built with one engineer | **Use.** Stated directly by Ankita. |
+| NetApp, Lacework, Panzura, Discord figures | **Use.** Strategy doc. |
 | Refusal gate: 0.467 vs 0.454 | **Use.** Measured, recorded in the Influencer Bot README. |
-| 92% story completion | **Hold.** No source identified. Restore if found. |
-| 200+ pilot participants | **Hold.** No source identified; may be the same cohort as the ~100 testers. |
-| 100% COPPA/GDPR compliance | **Hold.** "Compliant by design" is defensible; "certified" implies an audit. Reword or drop. |
+| 92% story completion | **Hold.** Appears on the retired Gamma site but not in the strategy doc. Restore only with a source. |
+| 200+ pilot participants | **Superseded** by ~300 families. Do not use both. |
+| 100% COPPA/GDPR certification | **Reword.** "Certification" implies a third-party audit. Use "designed for COPPA and GDPR-K compliance", which says the same thing about the engineering without claiming an audit. |
+
+**Where sources conflict** — the Gamma site, this spec, and Ankita's recollection
+— the Job Strategy Document is authoritative. It is the most recent considered
+pass, it was reviewed with her coach, and it was written under the diligence
+rule.
 
 **Where to recover usage data**, in order of durability: LLM provider billing
 dashboards (Gemini/Google AI Studio, OpenAI); billing receipts in email;
@@ -269,14 +301,21 @@ new site is proven, then redirect to `/projects/storytime`.
 
 ## 9. Open questions
 
-1. **Storytime code** — blocked on Drive access. Everything else proceeds.
-2. **Product Work content** — roles, dates, and shipped outcomes have not been
-   gathered. Needed before the About page and the Product Work group can be
-   built.
+1. **Storytime code** — still blocked. A Drive search on 2026-09-20 found no
+   Storytime files on the connected account; shared folders are unrelated
+   material from 2013–2022. Unblocks when the folder is downloaded locally or
+   shared with the connected account. Everything else proceeds.
+2. ~~Product Work content~~ — **resolved** from the Job Strategy Document (v3).
+   See §3.
 3. **Recruiter research** — Ankita asked that the site reflect what recruiters
-   currently look for. Treated as a discrete research pass that may revise §4
-   and §6 before the build starts. Not yet done.
-4. **Held claims** — 92% completion and 200+ participants stay out pending a
-   source.
+   currently look for. The strategy doc already carries dated July 2026 market
+   findings (Axial Search: 12,397 US AI product postings since Jan 2026;
+   employers rank judgment above execution — use-case selection, AI literacy,
+   and value framing above hands-on execution). That finding directly supports
+   §4: lead each project with judgment and tradeoffs, not feature lists. A
+   further research pass is optional rather than blocking.
+4. **92% completion** stays out pending a source.
 5. **Second Brain public split** — a sanitized skills-only public repo was
    offered and deferred. Revisit after the private repo exists.
+6. **Dates** — the Product Work table has no employment dates. Needed for the
+   About page.
