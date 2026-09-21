@@ -49,7 +49,7 @@ export const roles: Role[] = [
     scope:
       "Sole PM on the Data Lakehouse — a company top-10 priority, reporting through Senior Director and VP to CEO George Kurian.",
     points: [
-      "Led 0→1 StorageGRID Data Lakehouse strategy, expanding object storage into in-place analytics for petabyte-scale enterprise data across a 3,000+ customer installed base.",
+      "Led 0→1 StorageGRID Data Lakehouse strategy: analytics built into the storage platform rather than deployed on top of it. The difference is the product — one install, one upgrade path, one support call, and the grid admin keeps full visibility instead of operating a second system alongside it. Addressable across a 3,000+ customer installed base.",
       "Drove the build-versus-partner decision and OEM selection in 90 days, compressing a multi-year build path to under one year.",
       "De-risked the bet before it was built: validated with an internal customer running 6 PB, and secured two Fortune 10 banks as beta partners who stayed engaged from MVP onward.",
       "Built and defended the business case — a $5M ARR opportunity on a $500M line — securing executive investment and alignment across 30+ stakeholders, 12+ functions and 4 engineering teams.",
