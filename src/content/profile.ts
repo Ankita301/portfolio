@@ -110,7 +110,7 @@ export const roles: Role[] = [
     title: "Product Manager, Zephyr Enterprise",
     dates: "Oct 2017 – May 2019",
     context: "SaaS test management driving DevOps automation.",
-    scope: "Sole PM for Zephyr Enterprise.",
+    scope: "The only PM on Zephyr Enterprise — and a first PM role.",
     points: [
       "Owned the Zephyr Enterprise product lifecycle end to end — test requirements, repository, planning, execution and defect tracking. $35M+ ARR growing 12% a year.",
       "Launched Zephyr Maestro v1, a SaaS DevOps pipeline tool, within 120 days of proof-of-concept — every user onboarded.",
