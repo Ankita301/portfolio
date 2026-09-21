@@ -31,6 +31,8 @@ export type Role = {
   context: string
   /** Ownership and reporting line. The altitude signal. */
   scope?: string
+  /** Public artefact a reader can open. */
+  link?: { label: string; href: string }
   points: string[]
   metric?: { value: string; label: string }
 }
@@ -54,7 +56,7 @@ export const roles: Role[] = [
       "Pitched the integration to 60 engineers and came away with 11 committed to building it — a coalition recruited rather than assigned.",
       "Owned licensing and packaging for the new tier, and built a support exposure model before launch so the organisation knew what the incremental caseload would cost it.",
       "Launched Branch Buckets in StorageGRID 12.0 — isolated AI/ML experimentation on 10+ PB datasets without duplicating the underlying object data. 15% customer adoption.",
-      "It reaches customers as Open Lakehouse on NetApp — on the session catalogue at NetApp Insight, September 2026, with launch in November.",
+      "Selected Dremio as the OEM partner and took it through executive approval, engineering estimation and phase gating.",
     ],
     metric: { value: "90 days", label: "Build-vs-partner call that cut years off time-to-market" },
   },

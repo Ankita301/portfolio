@@ -205,6 +205,16 @@ function WorkStack() {
                   </div>
                 )}
 
+                {r.link && (
+                  <a
+                    href={r.link.href}
+                    className="mono"
+                    style={{ display: 'inline-block', marginTop: 12, color: 'var(--accent)' }}
+                  >
+                    {r.link.label} ↗
+                  </a>
+                )}
+
                 {r.metric && (
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginTop: 14 }}>
                     <span

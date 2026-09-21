@@ -95,6 +95,16 @@ export default function About() {
                 </div>
               )}
 
+              {r.link && (
+                <a
+                  href={r.link.href}
+                  className="mono"
+                  style={{ display: 'inline-block', marginTop: 12, color: 'var(--accent)' }}
+                >
+                  {r.link.label} ↗
+                </a>
+              )}
+
               <ul style={{ margin: '16px 0 0', paddingLeft: 0, listStyle: 'none', display: 'grid', gap: 10 }}>
                 {r.points.map((pt) => (
                   <li key={pt} style={{ display: 'flex', gap: 12, color: 'var(--muted)', fontSize: '0.95rem' }}>
