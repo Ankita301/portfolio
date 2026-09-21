@@ -40,14 +40,15 @@ export const roles: Role[] = [
     company: "NetApp",
     title: "Senior Product Manager, StorageGRID",
     dates: "Aug 2025 – Jul 2026",
-    context: "On-prem object storage for AI, analytics, backup and recovery.",
+    context:
+      "A $500M product line — on-prem S3-compatible object storage at exabyte scale, powering data lakes, lakehouses and AI workloads. Named a Leader in The Forrester Wave™: Object Storage Solutions, Q2 2026, with above-average customer feedback.",
     points: [
       "Led 0→1 StorageGRID Data Lakehouse strategy, expanding object storage into in-place analytics for petabyte-scale enterprise data across a 3,000+ customer installed base.",
       "Drove the build-versus-partner decision and OEM selection in 90 days, compressing a multi-year build path to under one year.",
       "De-risked the bet before it was built: validated with an internal customer running 6 PB, and secured two Fortune 10 banks as beta partners who stayed engaged from MVP onward.",
       "Secured executive investment and alignment across 30+ stakeholders, 12+ functions and 4 engineering teams.",
       "Launched Branch Buckets in StorageGRID 12.0 — isolated AI/ML experimentation on 10+ PB datasets without duplicating the underlying object data. 15% customer adoption.",
-      "Handed the Lakehouse off at strategy, architecture and validated demand. It demos at NetApp Insight in September 2026 and launches in November — after my departure in July.",
+      "Handed the Lakehouse off at strategy, architecture and validated demand. It reaches customers as Open Lakehouse on NetApp — on the session catalogue at NetApp Insight in September 2026, launching in November, after my departure in July.",
     ],
     metric: { value: "6 PB", label: "Validated before a line shipped" },
   },
