@@ -57,6 +57,7 @@ export const roles: Role[] = [
       "Owned licensing and packaging for the new tier, and built a support exposure model before launch so the organisation knew what the incremental caseload would cost it.",
       "Launched Branch Buckets in StorageGRID 12.0 — isolated AI/ML experimentation on 10+ PB datasets without duplicating the underlying object data. 15% customer adoption.",
       "Selected Dremio as the OEM partner and took it through executive approval, engineering estimation and phase gating.",
+      "It goes to market as Open Lakehouse on NetApp — a named breakout at NetApp INSIGHT 2026, September 29 to October 1.",
     ],
     metric: { value: "90 days", label: "Build-vs-partner call that cut years off time-to-market" },
   },
