@@ -82,7 +82,7 @@ export const roles: Role[] = [
       "Launched Kubernetes Security Posture Management for Amazon EKS and Google GKE, securing 200+ enterprise environments to CIS Benchmark compliance.",
       "Integrated telemetry and audit logs into the Polygraph ML engine, enabling real-time behavioral drift detection and anomaly correlation.",
       "Launched CIS Policy Preview and Kubernetes Audit Logs — adopted by roughly 80% of Kubernetes customers.",
-      "Awarded Inventor recognition for AI-driven innovation in cloud security and compliance.",
+      "Received Lacework's Inventor Award for the Kubernetes compliance and detection work.",
     ],
     metric: { value: "$40M", label: "ARR, compliance + K8s bundle" },
   },
