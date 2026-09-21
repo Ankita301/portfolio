@@ -29,6 +29,8 @@ export type Role = {
   title: string
   dates: string
   context: string
+  /** Ownership and reporting line. The altitude signal. */
+  scope?: string
   points: string[]
   metric?: { value: string; label: string }
 }
@@ -42,6 +44,8 @@ export const roles: Role[] = [
     dates: "Aug 2025 – Jul 2026",
     context:
       "A $500M product line — on-prem S3-compatible object storage at exabyte scale, powering data lakes, lakehouses and AI workloads. Named a Leader in The Forrester Wave™: Object Storage Solutions, Q2 2026, with above-average customer feedback.",
+    scope:
+      "Sole PM on the Data Lakehouse — a company top-10 priority, reporting through Senior Director and VP to CEO George Kurian.",
     points: [
       "Led 0→1 StorageGRID Data Lakehouse strategy, expanding object storage into in-place analytics for petabyte-scale enterprise data across a 3,000+ customer installed base.",
       "Drove the build-versus-partner decision and OEM selection in 90 days, compressing a multi-year build path to under one year.",
@@ -58,6 +62,7 @@ export const roles: Role[] = [
     title: "AI Product Lead / Cofounder",
     dates: "Apr 2024 – Aug 2025",
     context: "Voice-first GenAI storytelling for EdTech. Selected by Google's AI Startup Program.",
+    scope: "Cofounder. Product, design and go-to-market, with one engineer.",
     points: [
       "Launched a GenAI storytelling MVP in under 60 days on LangChain, Gemini 2.0 Flash and GCP.",
       "Designed multi-modal AI orchestration with Universal-2 speech-to-text and OpenAI text-to-speech at sub-second latency.",
@@ -71,13 +76,15 @@ export const roles: Role[] = [
     title: "Senior Product Manager",
     dates: "Nov 2021 – Sep 2023",
     context: "Cloud-native AI/ML security for Kubernetes compliance and threat detection.",
+    scope: "Sole PM for Kubernetes compliance, reporting to a Principal PM and then a Director.",
     points: [
+      "Owned Kubernetes compliance as sole PM. It sold as one bundle with cloud compliance — $40M ARR across the pair, of which Kubernetes was my half.",
       "Launched Kubernetes Security Posture Management for Amazon EKS and Google GKE, securing 200+ enterprise environments to CIS Benchmark compliance.",
       "Integrated telemetry and audit logs into the Polygraph ML engine, enabling real-time behavioral drift detection and anomaly correlation.",
       "Launched CIS Policy Preview and Kubernetes Audit Logs — adopted by roughly 80% of Kubernetes customers.",
       "Awarded Inventor recognition for AI-driven innovation in cloud security and compliance.",
     ],
-    metric: { value: "$40M", label: "ARR from KSPM" },
+    metric: { value: "$40M", label: "ARR, compliance + K8s bundle" },
   },
   {
     layer: "Govern",
@@ -85,6 +92,7 @@ export const roles: Role[] = [
     title: "Senior Product Manager",
     dates: "Jun 2019 – Nov 2021",
     context: "Hybrid cloud storage for unstructured data across AWS, Azure and GCP. Two bets: repositioning the Filer, and building identity-linked access.",
+    scope: "Sole PM on Panzura Filer, then promoted to Panzura Data Services with 2 PMs reporting to me. Reported to the CPO throughout.",
     points: [
       "Repositioned Panzura Filer across Azure, AWS and GCP — distributed file storage with lifecycle governance, driving 40%+ ARR growth.",
       "Built the identity and access system (IAM, STS), cutting onboarding from 40+ manual steps to a fraction — an 87% reduction.",
@@ -101,6 +109,7 @@ export const roles: Role[] = [
     title: "Product Manager, Zephyr Enterprise",
     dates: "Oct 2017 – May 2019",
     context: "SaaS test management driving DevOps automation.",
+    scope: "Sole PM for Zephyr Enterprise.",
     points: [
       "Launched Zephyr Maestro, a DevOps pipeline dashboard — every user onboarded within 120 days of proof-of-concept.",
       "Ran the beta with Staples before opening it to the full Zephyr customer base, using a single demanding enterprise to find the failure modes before they became support tickets.",

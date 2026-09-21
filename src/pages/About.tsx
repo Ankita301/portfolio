@@ -75,6 +75,26 @@ export default function About() {
 
               <div style={{ color: 'var(--muted)', fontSize: '0.88rem', marginTop: 6 }}>{r.context}</div>
 
+              {r.scope && (
+                <div
+                  className="mono"
+                  style={{
+                    marginTop: 10,
+                    color: 'var(--text)',
+                    background: 'var(--accent-soft)',
+                    border: '1px solid var(--line)',
+                    padding: '7px 11px',
+                    display: 'inline-block',
+                    letterSpacing: '0.08em',
+                    textTransform: 'none',
+                    fontSize: '0.74rem',
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {r.scope}
+                </div>
+              )}
+
               <ul style={{ margin: '16px 0 0', paddingLeft: 0, listStyle: 'none', display: 'grid', gap: 10 }}>
                 {r.points.map((pt) => (
                   <li key={pt} style={{ display: 'flex', gap: 12, color: 'var(--muted)', fontSize: '0.95rem' }}>

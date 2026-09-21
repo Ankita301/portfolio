@@ -185,6 +185,26 @@ function WorkStack() {
 
                 <div style={{ color: 'var(--muted)', fontSize: '0.9rem', marginTop: 6 }}>{r.context}</div>
 
+                {r.scope && (
+                  <div
+                    className="mono"
+                    style={{
+                      marginTop: 10,
+                      color: 'var(--text)',
+                      background: 'var(--accent-soft)',
+                      border: '1px solid var(--line)',
+                      padding: '7px 11px',
+                      display: 'inline-block',
+                      letterSpacing: '0.08em',
+                      textTransform: 'none',
+                      fontSize: '0.74rem',
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    {r.scope}
+                  </div>
+                )}
+
                 {r.metric && (
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginTop: 14 }}>
                     <span
