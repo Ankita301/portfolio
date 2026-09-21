@@ -65,32 +65,40 @@ export const projects: Project[] = [
     ],
     measured: [
       {
-        value: "HHH",
-        label: "Evaluation harness",
-        source:
-          "Human and automated Helpful / Honest / Harmless evaluation using golden datasets, SME-scored rubrics, LLM-as-a-Judge, precision/recall and BLEU/ROUGE.",
-      },
-      {
-        value: "α → GA",
-        label: "Release thresholds",
-        source:
-          "Explicit thresholds defined for accuracy, safety, hallucination and task completion, with logging and replay so regressions are caught rather than discovered.",
-      },
-      {
         value: "8",
-        label: "Test files, including prompt injection",
+        label: "Vitest suites, including prompt injection",
         source:
-          "Extraction, confidence scoring, PDF text handling, chat logic, validation and a dedicated prompt-injection suite.",
+          "Extraction, confidence scoring, PDF text handling, chat logic, validation, constants, utils, and a dedicated prompt-injection suite. In the repo, runnable.",
+      },
+      {
+        value: "12",
+        label: "Implementation specs written before code",
+        source:
+          "Architecture, auth, extraction, chat, RLS and API contracts specified up front, plus the Supabase schema.",
+      },
+      {
+        value: "HHH",
+        label: "Evaluation harness — specified, in build",
+        source:
+          "Golden datasets, SME-scored rubrics, LLM-as-a-Judge, precision/recall, BLEU/ROUGE, and alpha-to-GA thresholds are designed in the PRD. The harness itself is being built in September 2026 and is not in the repo yet.",
       },
     ],
     knownGaps: [
       "Scoped to NDAs and MSAs. Other contract types will extract something, but not the right things.",
       "Extraction quality depends on the PDF being text, not a scan. No OCR path yet.",
       "The feedback loop that turns user corrections into better prompts is specified but not yet closing on its own.",
+      "The evaluation harness is designed in the PRD but not yet built — which matters, because a product that refuses to guess needs a way to prove it refuses correctly. That is the current piece of work.",
     ],
     links: [
-      { label: "Repo", href: null, note: "extraction in progress" },
-      { label: "PRD", href: null, note: "extraction in progress" },
+      { label: "Repo", href: "https://github.com/Ankita301/contractiq" },
+      {
+        label: "PRD",
+        href: "https://github.com/Ankita301/contractiq/blob/main/docs/ContractIQ_PRD.md",
+      },
+      {
+        label: "Security plan",
+        href: "https://github.com/Ankita301/contractiq/blob/main/docs/security/security-plan.md",
+      },
     ],
   },
   {
@@ -220,7 +228,7 @@ export const projects: Project[] = [
       "Contradiction resolution across sources works in practice but has no test suite holding it honest.",
       "Repo stays private because of what the wiki contains, so the engineering here has to be described rather than shown.",
     ],
-    links: [{ label: "Repo", href: null, note: "private — contains named individuals" }],
+    links: [{ label: "Repo", href: null, note: "private — the corpus names real people" }],
   },
   {
     slug: "discord-rag",
