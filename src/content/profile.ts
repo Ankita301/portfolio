@@ -115,7 +115,6 @@ export const roles: Role[] = [
       "Owned the Zephyr Enterprise product lifecycle end to end — test requirements, repository, planning, execution and defect tracking. $35M+ ARR growing 12% a year.",
       "Launched Zephyr Maestro v1, a SaaS DevOps pipeline tool, within 120 days of proof-of-concept — every user onboarded.",
       "Ran the beta with Staples before opening it to the full Zephyr customer base, using a single demanding enterprise to find the failure modes before they became support tickets.",
-      "Drove roadmap and business strategy from customer surveys, competitive research and market analysis rather than inbound feature requests.",
     ],
     metric: { value: "100%", label: "User onboarding in 120 days" },
   },
