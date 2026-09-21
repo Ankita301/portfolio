@@ -64,10 +64,10 @@ export const roles: Role[] = [
   },
   {
     layer: "Secure",
-    company: "Lacework",
+    company: "Lacework (Fortinet)",
     title: "Senior Product Manager",
     dates: "Nov 2021 – Sep 2023",
-    context: "Cloud-native AI/ML security for Kubernetes compliance and threat detection. Acquired by Fortinet.",
+    context: "Cloud-native AI/ML security for Kubernetes compliance and threat detection.",
     points: [
       "Launched Kubernetes Security Posture Management for Amazon EKS and Google GKE, securing 200+ enterprise environments to CIS Benchmark compliance.",
       "Integrated telemetry and audit logs into the Polygraph ML engine, enabling real-time behavioral drift detection and anomaly correlation.",
@@ -92,15 +92,16 @@ export const roles: Role[] = [
   },
   {
     layer: "Ship",
-    company: "SmartBear",
+    company: "Zephyr (SmartBear)",
     title: "Product Manager, Zephyr Enterprise",
     dates: "Oct 2017 – May 2019",
     context: "SaaS test management driving DevOps automation.",
     points: [
+      "Launched Zephyr Maestro, a DevOps pipeline dashboard — every user onboarded within 120 days of proof-of-concept.",
+      "Ran the beta with Staples before opening it to the full Zephyr customer base, using a single demanding enterprise to find the failure modes before they became support tickets.",
       "Owned the end-to-end product lifecycle for Zephyr Enterprise, contributing to $35M+ ARR and 12% year-over-year growth.",
-      "Launched Zephyr Maestro, a SaaS DevOps pipeline tool — 100% user adoption within 120 days of proof-of-concept.",
     ],
-    metric: { value: "$35M+", label: "ARR contributed" },
+    metric: { value: "100%", label: "User onboarding in 120 days" },
   },
 ]
 
