@@ -119,6 +119,7 @@ export const projects: Project[] = [
       "Gemini 2.0 Flash via LangChain for generation, Universal-2 for speech-to-text, OpenAI for text-to-speech.",
       "Story generation runs as a three-stage pipeline — start, continue, conclude — rather than one long generation, so a session can branch at each turn without regenerating what came before.",
       "Narration streams over WebSockets, because waiting for a complete audio file before speaking breaks a voice-first experience.",
+      "Interaction cost is modelled per question type — roughly 30 tokens for a simple identification, 50 for a prediction, 80 for multi-part reasoning — so session length and cost can be planned before generation rather than discovered after.",
       "Trust designed before intelligence — prompt constraints, content guardrails, token caps, retry logic and fallback paths.",
       "Compliance designed in from the start: COPPA, GDPR-K, IEEE 7000 and UNICEF AI guidance.",
     ],
@@ -132,6 +133,11 @@ export const projects: Project[] = [
         title: "Latency treated as a product requirement",
         body:
           "Interaction flow was simplified and unnecessary turns removed, specifically to protect response time. Users preferred a fast reliable story over richer branching — tested, not assumed.",
+      },
+      {
+        title: "Every constant in the system traces to child development research",
+        body:
+          "The numbers that govern a session are not round numbers somebody liked. A story uses 80% of a child's attention span rather than 100%, because learning degrades when cognitive load is maxed out and the remaining 20% absorbs distraction and thinking time. Interactions cap at 8, from Miller's 7±2 working-memory limit. Question complexity bands at 0.4 and 0.7 map to Piaget's stages — preoperational at 3–4 gets \"what colour is the bear?\", early concrete operational at 5–6 gets \"what do you think happens next?\", and 7–9 gets \"how would you help them solve this?\". Ten percent of every story is reserved for transitions and dramatic pauses, from conversation-flow research. Writing the reasoning down next to each constant is what let the system be tuned later against real usage instead of re-argued from scratch.",
       },
       {
         title: "A story's token budget is split 15 / 70 / 15",
