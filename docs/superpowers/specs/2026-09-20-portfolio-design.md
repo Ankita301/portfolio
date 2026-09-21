@@ -113,8 +113,7 @@ interactive audio story each time a child asks, tuned to their age.
 
 - **Shipped and paused.** Apr 2024 – Aug 2025, as **AI Product Lead /
   Cofounder**. **200+ pilot participants.** Built with a single engineer. Paused
-  when token costs reached roughly $100/month. **Google Cloud for Startups AI
-  program participant.**
+  when token costs reached roughly $100/month.
 - **From the resume:** MVP launched in **under 60 days** using LangChain, Gemini
   2.0 Flash and GCP. Multi-modal orchestration with Universal-2 STT and OpenAI
   TTS at sub-second latency. **100% retention of early adopters.**
@@ -271,7 +270,7 @@ under questioning. Where anything conflicts with them, they win.
 | All Product Work figures (§3) | **Use.** Resume, 09.17.2026 v2. |
 | Storytime: 100% retention of early adopters | **Use.** Resume. |
 | Storytime: MVP in under 60 days | **Use.** Resume. |
-| Google Cloud for Startups AI program **participant** | **Use.** Resume wording. "Participant", not "selected" or "accepted" — the resume is the more careful phrasing and it is the checkable one. |
+| Google Cloud for Startups AI program | **DO NOT USE as written anywhere.** Clarified by Ankita 2026-09-20: Google asked for LLC details to complete enrollment and she has not supplied them. She was approved *conditionally*; she never enrolled. "Participant" (resume) and "selected by Google" (Gamma site) both overstate it. Options, in order of preference: (a) omit entirely; (b) "Invited to Google Cloud for Startups AI program — enrollment not completed"; (c) register the LLC, enroll, then claim it plainly. **This also needs fixing on the resume dated 09.17.2026, which is in circulation.** |
 | 200+ pilot participants | **Use.** Ankita's decision, 2026-09-20. See the note below. |
 | Token costs reached ~$100/month | **Use.** Stated directly; verifiable from billing records. |
 | Built with one engineer | **Use.** Stated directly by Ankita. |
@@ -374,6 +373,13 @@ new site is proven, then redirect to `/projects/storytime`.
    §4: lead each project with judgment and tradeoffs, not feature lists. A
    further research pass is optional rather than blocking.
 4. **92% completion** stays out pending a source.
+
+4a. **Google program status — action needed outside this project.** The resume
+   in circulation (09.17.2026) and the live Gamma site both claim the Google
+   Cloud for Startups AI program more strongly than the facts support. The site
+   is easy — it does not exist yet. The resume is the urgent one. Ankita decides
+   whether to reword it or complete the LLC registration and earn the claim
+   outright.
 5. **Second Brain public split** — a sanitized skills-only public repo was
    offered and deferred. Revisit after the private repo exists.
 6. **Dates** — the Product Work table has no employment dates. Needed for the
