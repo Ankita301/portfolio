@@ -51,6 +51,8 @@ export const roles: Role[] = [
       "Drove the build-versus-partner decision and OEM selection in 90 days, compressing a multi-year build path to under one year.",
       "De-risked the bet before it was built: validated with an internal customer running 6 PB, and secured two Fortune 10 banks as beta partners who stayed engaged from MVP onward.",
       "Built and defended the business case — a $5M ARR opportunity on a $500M line — securing executive investment and alignment across 30+ stakeholders, 12+ functions and 4 engineering teams.",
+      "Pitched the integration to 60 engineers and came away with 11 committed to building it — a coalition recruited rather than assigned.",
+      "Owned licensing and packaging for the new tier, and built a support exposure model before launch so the organisation knew what the incremental caseload would cost it.",
       "Launched Branch Buckets in StorageGRID 12.0 — isolated AI/ML experimentation on 10+ PB datasets without duplicating the underlying object data. 15% customer adoption.",
       "It reaches customers as Open Lakehouse on NetApp — on the session catalogue at NetApp Insight, September 2026, with launch in November.",
     ],
