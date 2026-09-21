@@ -127,20 +127,20 @@ interactive audio story each time a child asks, tuned to their age.
 A non-repo section for professional roles and shipped outcomes, in the manner of
 Kemler's "Built at Google".
 
-> **UNVERIFIED — DO NOT BUILD FROM THIS TABLE.** The figures below came from a
-> document found in a Drive account belonging to someone other than Ankita.
-> Ankita has not confirmed the work history is hers. Nothing here ships until
-> she supplies these details directly or confirms this table. Retained only so
-> the shape of the section is clear.
+Confirmed by Ankita 2026-09-20 as her own work history.
 
-| Role | Proof |
-|---|---|
-| **NetApp** — Senior PM, StorageGRID | 0→1 AI Data Lakehouse: OEM evaluation across Dremio, Starburst, Trino/Presto, Iceberg. Concept to prototype in ~6 months, 12+ orgs, 30+ stakeholders. |
-| **Lacework** | ML and Kubernetes security. KSPM revenue $12M → $20M. Inventor Award. |
-| **Panzura** | IAM, regulated and air-gapped deployments. $20M+ first-year revenue; $25M federal opportunity. |
-| **Discord RAG assistant** | 37% accuracy improvement, 58% latency reduction, across 10K+ embeddings. |
+| Role | Proof | Dates |
+|---|---|---|
+| **NetApp** — Senior PM, StorageGRID | 0→1 AI Data Lakehouse: OEM evaluation across Dremio, Starburst, Trino/Presto, Iceberg. Concept to prototype in ~6 months, 12+ orgs, 30+ stakeholders. | *needed* |
+| **Lacework** | ML and Kubernetes security. KSPM revenue $12M → $20M. Inventor Award. | *needed* |
+| **Panzura** | IAM, regulated and air-gapped deployments. $20M+ first-year revenue; $25M federal opportunity. | *needed* |
+| **SmartBear** | *Details needed — role, scope, outcome.* | *needed* |
+| **Discord RAG assistant** | 37% accuracy improvement, 58% latency reduction, across 10K+ embeddings. | *needed* |
 
 Cumulative: **$100M+ ARR touched.**
+
+Dates are required before this section can be built — a work-history section
+without them reads as evasive, and a reader checks them against LinkedIn anyway.
 
 **Positioning line**, taken verbatim from the strategy doc so the site, resume,
 and LinkedIn agree: *"I build secure, grounded, and production-ready AI products
@@ -304,8 +304,9 @@ new site is proven, then redirect to `/projects/storytime`.
    Storytime files on the connected account; shared folders are unrelated
    material from 2013–2022. Unblocks when the folder is downloaded locally or
    shared with the connected account. Everything else proceeds.
-2. ~~Product Work content~~ — **resolved** from the Job Strategy Document (v3).
-   See §3.
+2. **Product Work** — roles confirmed as Ankita's own (NetApp, Lacework,
+   Panzura, SmartBear, Discord). Still needed: **employment dates for all five**,
+   and **SmartBear's role, scope and outcome**, which no source on hand covers.
 3. **Recruiter research** — Ankita asked that the site reflect what recruiters
    currently look for. The strategy doc already carries dated July 2026 market
    findings (Axial Search: 12,397 US AI product postings since Jan 2026;
