@@ -40,7 +40,7 @@ export const roles: Role[] = [
   {
     layer: "Activate",
     company: "NetApp",
-    title: "Senior Product Manager, StorageGRID",
+    title: "Senior Technical Product Manager, StorageGRID",
     dates: "Aug 2025 – Jul 2026",
     context:
       "A $500M product line — on-prem S3-compatible object storage at exabyte scale, powering data lakes, lakehouses and AI workloads. Named a Leader in The Forrester Wave™: Object Storage Solutions, Q2 2026, with above-average customer feedback.",
@@ -73,7 +73,7 @@ export const roles: Role[] = [
   {
     layer: "Secure",
     company: "Lacework (Fortinet)",
-    title: "Senior Product Manager",
+    title: "Senior Technical Product Manager",
     dates: "Nov 2021 – Sep 2023",
     context: "Cloud-native AI/ML security for Kubernetes compliance and threat detection.",
     scope: "Sole PM for Kubernetes compliance, reporting to a Principal PM and then a Director.",
@@ -89,7 +89,7 @@ export const roles: Role[] = [
   {
     layer: "Govern",
     company: "Panzura",
-    title: "Senior Product Manager",
+    title: "Senior Technical Product Manager",
     dates: "Jun 2019 – Nov 2021",
     context: "Hybrid cloud storage for unstructured data across AWS, Azure and GCP. Two bets: repositioning the Filer, and building identity-linked access.",
     scope: "Sole PM on Panzura Filer, then promoted to Panzura Data Services with 2 PMs reporting to me. Reported to the CPO throughout.",
