@@ -9,7 +9,7 @@
 ## 1. Purpose
 
 A single portfolio site that replaces `storytime.bhargava-ankita.com` as Ankita's
-professional home. It presents four AI products she has built, plus her product
+professional home. It presents the AI products she has built, plus her product
 work history.
 
 **Primary reader:** hiring managers for Principal/Staff AI PM roles. They want
@@ -48,7 +48,7 @@ These are firm and shape everything below.
 
 ---
 
-## 3. Content — the four projects
+## 3. Content — the projects
 
 Source material verified on disk, not taken from prior descriptions.
 
@@ -76,25 +76,21 @@ questions grounded strictly in the document text.
 - **Currently:** inside the public fork `Ankita301/dev-os`, at `contactiq/`
   (the directory name is missing an `r`; fixed on extraction).
 
-### Influencer Bot — public repo
+### Influencer Bot — EXCLUDED
 
-A second brain for creators: attach someone's published content, and their
-audience asks questions and gets answers grounded in what that person wrote,
-with links back to the source.
+**Decision, Ankita, 2026-09-20: not on the site.** One day of work, no
+customers, and not enough lived experience to answer questions about it under
+pressure. It comes back when there are one or two real customers.
 
-- **Stack:** Next.js, `bge-small-en-v1.5` embeddings run locally via
-  transformers.js, `node:sqlite`, brute-force cosine vector search.
-- **Technical layer — the strongest single artifact on the site:** the refusal
-  gate was measured, not assumed. On a real corpus the weakest genuine question
-  scored 0.467 and a deliberately absurd control scored 0.454, so no similarity
-  threshold separates them. What separates them is distribution shape: a covered
-  question makes one chunk stand out sharply, an uncovered one leaves every
-  chunk equally irrelevant. The gate measures standard deviations above the
-  corpus mean.
-- **Known gaps, already documented:** no grounding verifier, and the model was
-  observed folding an ungrounded definition into a paragraph ending in a
-  citation. RSS yields teasers rather than articles. Single-tenant in practice.
-- **Currently:** private repo `Ankita301/influencer-bot`. Flips to public.
+The repo **stays private**. This is the diligence rule applied to herself, and
+it is the right call — a card she cannot defend for ten minutes is worse than no
+card.
+
+One thing to preserve for later: the refusal gate in that README was *measured*,
+not assumed. The weakest genuine question scored 0.467 and a deliberately absurd
+control scored 0.454, so no similarity threshold separated them; the gate was
+rebuilt to measure standard deviations above the corpus mean instead. When this
+project returns, that is its lead.
 
 ### Second Brain — private repo
 
@@ -188,15 +184,16 @@ over complex enterprise data."*
 ```
 /                          Hero → positioning → grouped cards
 /projects/contractiq       ─┐
-/projects/influencer-bot    ├─ technical layer
+/projects/storytime         ├─ technical layer
 /projects/second-brain      │
-/projects/storytime        ─┘
+/projects/discord-rag      ─┘  (pending decision)
 /about                     Story, work history, skills
 ```
 
 **Home groups**
 
-1. **AI Products I've Built** — the four above
+1. **AI Products I've Built** — ContractIQ, Storytime, Second Brain, and
+   Discord RAG if adopted
 2. **Product Work** — professional history
 3. **Contact**
 
@@ -278,7 +275,6 @@ under questioning. Where anything conflicts with them, they win.
 | 200+ pilot participants | **Use.** Ankita's decision, 2026-09-20. See the note below. |
 | Token costs reached ~$100/month | **Use.** Stated directly; verifiable from billing records. |
 | Built with one engineer | **Use.** Stated directly by Ankita. |
-| Refusal gate: 0.467 vs 0.454 | **Use.** Measured, recorded in the Influencer Bot README. |
 | 92% story completion | **Hold** pending a source. Recoverable from LangSmith or analytics if either still has data. |
 
 **Note on the Storytime user count.** Neither the resume nor the 61-page Q&A
@@ -325,7 +321,8 @@ Additive only. Nothing is deleted or archived.
 
 **Change in place**
 
-- `influencer-bot`: private → public. Add description, topics, LICENSE.
+- `influencer-bot`: **stays private.** Excluded from the site; revisit when it
+  has real customers.
 
 **Verified before any push:** ContractIQ's `.env.local` is gitignored and was
 never committed. Only placeholder values appear in git history. No secrets to
@@ -368,10 +365,7 @@ new site is proven, then redirect to `/projects/storytime`.
      latency reduction, 60% lower mentor workload. A live product with three
      hard numbers is strong card material and it is not currently in the site
      plan. Recommend adding it.
-   - **Influencer Bot does not appear on the resume at all**, yet its README
-     contains the single best piece of technical writing in the collection (the
-     measured refusal gate). Either it earns a place on the resume too, or its
-     absence there is a deliberate call worth confirming before it gets a card.
+   - ~~Influencer Bot~~ — **decided: excluded.** See §3.
 3. **Recruiter research** — Ankita asked that the site reflect what recruiters
    currently look for. The strategy doc already carries dated July 2026 market
    findings (Axial Search: 12,397 US AI product postings since Jan 2026;
