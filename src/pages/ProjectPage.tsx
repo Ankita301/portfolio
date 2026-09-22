@@ -237,9 +237,9 @@ export default function ProjectPage() {
       </Section>
 
       {/* The differentiator. Every project has one. */}
-      <Section label="Known gaps" title="What doesn't work, and why that's the interesting part">
+      <Section label="What's next" title="Where it goes next — limits included">
         <ul style={{ margin: 0, paddingLeft: 0, listStyle: 'none', display: 'grid', gap: 14 }}>
-          {p.knownGaps.map((g) => (
+          {p.whatsNext.map((g) => (
             <li key={g} style={{ display: 'flex', gap: 12, color: 'var(--muted)' }}>
               <span style={{ color: 'var(--accent)', flexShrink: 0 }}>—</span>
               <span>{g}</span>

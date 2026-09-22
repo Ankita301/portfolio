@@ -19,8 +19,8 @@ export type Project = {
   decisions: { title: string; body: string }[]
   /** Required. The number, how it was obtained, what it means. */
   measured: { value: string; label: string; source: string }[]
-  /** Required. What does not work, and why that is the interesting part. */
-  knownGaps: string[]
+  /** Required. Where it goes next, stated honestly — limits included. */
+  whatsNext: string[]
   /** A working demo, where one exists. Vertical for phone-shot video. */
   demo?: { youtubeId: string; caption: string; vertical?: boolean }
   links: Link[]
@@ -83,11 +83,11 @@ export const projects: Project[] = [
           "Golden datasets, SME-scored rubrics, LLM-as-a-Judge, precision/recall, BLEU/ROUGE, and alpha-to-GA thresholds are designed in the PRD. The harness itself is being built in September 2026 and is not in the repo yet.",
       },
     ],
-    knownGaps: [
-      "Scoped to NDAs and MSAs. Other contract types will extract something, but not the right things.",
-      "Extraction quality depends on the PDF being text, not a scan. No OCR path yet.",
-      "The feedback loop that turns user corrections into better prompts is specified but not yet closing on its own.",
-      "The evaluation harness is designed in the PRD but not yet built — which matters, because a product that refuses to guess needs a way to prove it refuses correctly. That is the current piece of work.",
+    whatsNext: [
+      "Out-of-scope detection comes before any new contract type. Today an employment agreement extracts plausible output against the wrong schema, which is the exact failure this product exists to prevent.",
+      "OCR is the next market expansion. Extraction currently needs real text, and scanned contracts are a large share of what small businesses actually receive.",
+      "Closing the feedback loop is the defensibility story: corrections are already captured, they just do not yet feed prompt quality.",
+      "The evaluation harness is in build now. A product that refuses to guess needs a way to prove it refuses correctly, and that is the current work.",
     ],
     links: [
       { label: "Repo", href: "https://github.com/Ankita301/contractiq" },
@@ -104,12 +104,12 @@ export const projects: Project[] = [
   {
     slug: "storytime",
     name: "Storytime AI",
-    tags: ["Voice GenAI", "EdTech"],
+    tags: ["Voice GenAI", "iOS · Web · GCP"],
     year: "2024–25",
     status: "Shipped, then paused",
     icon: "story",
     blurb:
-      "A new bedtime story every night, made up on the spot, told out loud — and the child decides what happens next.",
+      "A new bedtime story every night, made up on the spot, told out loud, and the child decides what happens next. Shipped as a native iOS app, a web app and a backend on Cloud Run.",
     what:
       "A voice-first storytelling companion for young children. No screen. The child says what they want a story about, and the story is generated and narrated in real time, branching on what they say next, tuned to their age.",
     hard:
@@ -184,10 +184,10 @@ export const projects: Project[] = [
         source: "Reached during the live period.",
       },
     ],
-    knownGaps: [
-      "Paused, not shipped-and-forgotten. It ran in production on Cloud Run with dev and prod environments, but per-story inference cost outran what the product could recover — around $100/month at pilot scale with no revenue — and the team was small enough that continuity depended on very few people.",
+    whatsNext: [
+      "Paused rather than abandoned. It ran in production on Cloud Run across dev and prod, but per-story inference outran what the product could recover — roughly $100/month at pilot scale against no revenue — and the team was small enough that continuity rested on very few people.",
       "That is the real lesson, and it is a product lesson rather than a technical one: shipping an MVP is not the same as building something maintainable, measurable and independently operable.",
-      "A cost model exists for the rebuild. The economics have to work at the unit level before it goes live again.",
+      "A restart depends on unit economics, not engineering. The cost model exists; per-story inference has to clear its own bar before this goes live again.",
       "The PRD set an evaluation framework — relevance, age-fit, interactivity, toxicity, quarterly bias audits, fallback logging — with targets of NPS above 40 and hallucination under 5%. Those were the bar, not a measured result. Designing the framework is not the same as running it.",
     ],
     demo: {
@@ -253,7 +253,7 @@ export const projects: Project[] = [
         source: "Replaces a manual aggregation pass.",
       },
     ],
-    knownGaps: [
+    whatsNext: [
       "The corpus is small — the pattern is proven, the scale is not.",
       "Contradiction resolution across sources works in practice but has no test suite holding it honest.",
       "Repo stays private because of what the wiki contains, so the engineering here has to be described rather than shown.",
@@ -289,7 +289,7 @@ export const projects: Project[] = [
       { value: "58%", label: "Latency reduction", source: "End-to-end response time." },
       { value: "60%", label: "Lower mentor workload", source: "The metric the product was actually built for." },
     ],
-    knownGaps: [
+    whatsNext: [
       "Scoped to one community's corpus. Retrieval tuning does not transfer as-is to a different domain.",
       "Built under NDA for a private cohort, so the running system cannot be demonstrated. The numbers here are mine; the product is not mine to show.",
     ],
