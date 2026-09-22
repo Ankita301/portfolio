@@ -206,7 +206,7 @@ export default function ProjectPage() {
                 {lane.label && <div className="flow-lane-label">{lane.label}</div>}
                 <div className="flow-steps">
                   {lane.steps.map((step, i) => (
-                    <div key={step} style={{ display: 'contents' }}>
+                    <div className="flow-pair" key={step}>
                       {i > 0 && <span className="flow-arrow" aria-hidden>→</span>}
                       <div className="flow-step">{step}</div>
                     </div>
