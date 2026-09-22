@@ -3,7 +3,7 @@ export const profile = {
   role: "AI & Data Infrastructure Product",
   location: "San Francisco Bay Area",
   email: "ankita.bhargava301@gmail.com",
-  linkedin: "https://www.linkedin.com/in/ankitabhargava",
+  linkedin: "https://www.linkedin.com/in/abhargava-pm",
   github: "https://github.com/Ankita301",
 
   /** The one-liner, from her own positioning work. */
