@@ -29,10 +29,10 @@ export default function About() {
           marginTop: 24,
         }}
       >
-        Every AI product is a data product wearing a different hat. Ten years across enterprise
-        storage, cloud security and AI infrastructure is really ten years of the same question asked
-        four ways: where does the data live, who is allowed to touch it, can you trust what comes
-        back, and what does it cost to find out.
+        Every AI product is a data product wearing a different hat. Ten years across exabyte-scale
+        enterprise storage, cloud security and AI infrastructure is really ten years of the same
+        question asked four ways: where does the data live, who is allowed to touch it, can you
+        trust what comes back, and what does it cost to find out.
       </p>
 
       <p style={{ color: 'var(--muted)', maxWidth: '62ch', marginTop: 18 }}>{profile.summary}</p>
