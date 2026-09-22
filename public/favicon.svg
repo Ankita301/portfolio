@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" fill="#0b0d10"/>
+  <!-- the stack, bottom-up: four layers, the top one activated -->
+  <rect x="14" y="41" width="36" height="6" rx="1.5" fill="#3a4049"/>
+  <rect x="14" y="32" width="36" height="6" rx="1.5" fill="#575f6b"/>
+  <rect x="14" y="23" width="36" height="6" rx="1.5" fill="#8b93a0"/>
+  <rect x="14" y="14" width="36" height="6" rx="1.5" fill="#e9a13b"/>
+</svg>
