@@ -117,7 +117,8 @@ export const projects: Project[] = [
     how: [
       "Three clients against one Python backend: a native SwiftUI iOS app, a React and TypeScript web app, and a shared API.",
       "Backend layered as presentation, business and data — versioned routers with typed request and response schemas, and services split by domain: auth, session, chat, parent, avatar, story theme and storytelling.",
-      "Gemini for generation, Universal-2 for speech-to-text, OpenAI for text-to-speech, MongoDB Atlas for session and profile state, Google Identity Platform for auth.",
+      "v1 orchestrated the voice loop itself over a WebSocket — Universal-2 for speech-to-text, Gemini for generation, OpenAI for text-to-speech. v2 replaced that with ElevenLabs conversational agents: the backend issues a signed URL and receives HMAC-verified webhooks instead of brokering every turn.",
+      "MongoDB Atlas for session and profile state, Google Identity Platform for auth.",
       "Story generation ran as a three-stage pipeline — start, continue, conclude — rather than one long generation, so a session could branch at each turn without regenerating what came before.",
       "Deployed on Google Cloud Run behind Artifact Registry, with separate dev and production environments defined in Terraform and shipped by GitHub Actions.",
       "Trust designed before intelligence — prompt constraints, content guardrails, token caps, retry logic and fallback paths.",
@@ -140,14 +141,14 @@ export const projects: Project[] = [
           "The numbers that govern a session are not round numbers somebody liked. A story uses 80% of a child's attention span rather than 100%, because learning degrades when cognitive load is maxed out and the remaining 20% absorbs distraction and thinking time. Interactions cap at 8, from Miller's 7±2 working-memory limit. Question complexity bands at 0.4 and 0.7 map to Piaget's stages — preoperational at 3–4 gets \"what colour is the bear?\", early concrete operational at 5–6 gets \"what do you think happens next?\", and 7–9 gets \"how would you help them solve this?\". Ten percent of every story is reserved for transitions and dramatic pauses, from conversation-flow research. Writing the reasoning down next to each constant is what let the system be tuned later against real usage instead of re-argued from scratch.",
       },
       {
+        title: "v2 gave up control of the voice loop to buy latency",
+        body:
+          "v1 orchestrated everything — speech to text, generation, text to speech — over a WebSocket. That meant total control of the prompt, the pacing and the guardrails, and it also meant latency was the sum of three network hops plus three inference calls. In a voice product where a pause breaks the spell, that sum was the product. v2 handed the loop to a purpose-built conversational agent and kept the backend for what only it could do: auth, session state, story setup and the webhook that records what happened. Less control over each turn, a faster turn. For children who will not wait, that was the right trade — and v1 stayed running, because an App Store release cannot be force-migrated.",
+      },
+      {
         title: "CI/CD authenticated with Workload Identity Federation, not service-account keys",
         body:
           "GitHub Actions deploys to Google Cloud without a long-lived credential stored anywhere in the repo — the pipeline federates its identity and receives short-lived tokens instead. For a children\u2019s product holding profile data, a leaked deploy key is the kind of mistake you only get to make once. It cost an afternoon of setup and removed an entire class of breach.",
-      },
-      {
-        title: "The API was versioned before it needed to be",
-        body:
-          "Storytelling shipped as v1 and later v2 with the breaking changes documented, while v1 stayed up. With a native iOS app in the App Store you cannot force everyone onto a new contract on your schedule \u2014 users update when they update. Versioning from the start is what lets the backend move without stranding a phone.",
       },
       {
         title: "A story's token budget is split 15 / 70 / 15",
