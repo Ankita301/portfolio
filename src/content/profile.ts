@@ -10,12 +10,23 @@ export const profile = {
   oneLiner:
     "I build secure, grounded, production-ready AI products over complex enterprise data.",
 
-  /** The hero thesis — the actual through-line, in her own framing. */
+  /** Four facts, above the fold. Categorise, then believe. */
+  proof: [
+    "5+ 0→1 products launched",
+    "$100M+ ARR delivered",
+    "Exabyte scale",
+    "GenAI shipped to production",
+  ],
+
+  /** The thesis that organises everything below. */
+  thesisLine: "Every AI product is a data product wearing a different hat.",
+
+  /** The stack — what was built at each layer, not what it taught me. */
   thesis: [
-    { layer: "Stored", body: "Panzura taught me how data is stored and governed." },
-    { layer: "Secured", body: "Lacework taught me how it is secured and monitored." },
-    { layer: "Consumed", body: "Storytime taught me how AI systems consume it." },
-    { layer: "Activated", body: "NetApp brought it together — activating enterprise data for AI at scale." },
+    { layer: "Govern", body: "Panzura. Petabyte-scale data, governed, air-gapped, federal." },
+    { layer: "Secure", body: "Lacework. Kubernetes compliance at $40M ARR." },
+    { layer: "Consume", body: "Storytime. A GenAI product shipped to production." },
+    { layer: "Activate", body: "NetApp. Exabyte-scale object storage made AI-ready." },
   ],
 
   summary:

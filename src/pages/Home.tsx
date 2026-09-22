@@ -44,9 +44,28 @@ function Hero() {
           <span style={{ color: 'var(--accent)' }}>complex enterprise data</span>.
         </p>
 
+        {/* Four facts, before any story. A reader decides here. */}
+        <div className="proof-row" style={{ marginTop: 'clamp(30px, 5vw, 46px)' }}>
+          {profile.proof.map((f) => (
+            <span className="proof-item mono" key={f}>
+              {f}
+            </span>
+          ))}
+        </div>
+
         {/* Signature: the career as a stack, read bottom-up the way infrastructure is. */}
         <div style={{ marginTop: 'clamp(44px, 7vw, 80px)', maxWidth: 780 }}>
           <Eyebrow>The stack, bottom-up</Eyebrow>
+          <p
+            style={{
+              fontSize: 'clamp(1rem, 2vw, 1.15rem)',
+              color: 'var(--text)',
+              margin: '14px 0 0',
+              maxWidth: '46ch',
+            }}
+          >
+            {profile.thesisLine}
+          </p>
           <div style={{ marginTop: 18, borderTop: '1px solid var(--line)' }}>
             {[...profile.thesis].reverse().map((t, i) => (
               <div
