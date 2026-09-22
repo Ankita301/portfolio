@@ -7,6 +7,9 @@ import Home from './pages/Home'
 import ProjectPage from './pages/ProjectPage'
 import About from './pages/About'
 
+// Matches Vite's base so project-site paths (/portfolio/...) resolve.
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '')
+
 const router = createBrowserRouter([
   {
     element: <Layout />,
@@ -17,7 +20,7 @@ const router = createBrowserRouter([
       { path: '*', element: <Home /> },
     ],
   },
-])
+], { basename })
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

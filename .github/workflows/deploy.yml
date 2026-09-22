@@ -1,14 +1,16 @@
 # Deploys the portfolio to GitHub Pages.
 #
-# DRAFT MODE: this workflow runs ONLY when triggered by hand from the Actions
-# tab. It deliberately has no `push` trigger, so nothing publishes by accident.
-# To go live: enable Pages (Settings -> Pages -> Source: GitHub Actions), then
-# run this workflow once. Add a `push` trigger only if you want every commit to
-# deploy.
+# Deploys to https://Ankita301.github.io/portfolio/ on every push to main.
+#
+# The page carries <meta name="robots" content="noindex, nofollow"> so the
+# preview URL is reachable but not crawled. When moving to the custom domain:
+# remove that meta tag, drop VITE_BASE so base returns to '/', and add a CNAME.
 name: Deploy to GitHub Pages
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
 
 permissions:
   contents: read
@@ -30,6 +32,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          VITE_BASE: /portfolio/
       # SPA fallback: Pages serves 404.html for unknown paths, so /projects/x
       # resolves to the app instead of a GitHub 404.
       - run: cp dist/index.html dist/404.html
