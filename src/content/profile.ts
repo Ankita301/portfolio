@@ -83,14 +83,14 @@ export const roles: Role[] = [
     context: "Cloud-native AI/ML security for Kubernetes compliance and threat detection.",
     scope: "Sole PM for Kubernetes compliance, reporting to a Principal PM and then a Director.",
     points: [
-      "Owned Kubernetes compliance as sole PM. It sold as one bundle with cloud compliance — $40M ARR across the pair, of which Kubernetes was my half.",
+      "Seven new enterprise contracts, each worth $2–6M, were contingent on having Kubernetes compliance. I owned that capability as sole PM. It sold inside a $40M ARR bundle with cloud compliance, so the revenue was reported together — but those seven deals could not close without the half I owned.",
       "Launched Kubernetes Security Posture Management for Amazon EKS and Google GKE, securing 200+ enterprise environments to CIS Benchmark compliance.",
       "Turned CIS Benchmarks from prose into executable Rego/OPA policy, backed by three collector types — node-level DaemonSets, cluster-level via the Kubernetes API, and control-plane collectors — normalized through an agent that tagged KSPM data separately so it never disturbed existing CSPM customers.",
       "Integrated telemetry and audit logs into the Polygraph ML engine, enabling real-time behavioral drift detection and anomaly correlation.",
       "Launched CIS Policy Preview and Kubernetes Audit Logs — adopted by roughly 80% of Kubernetes customers.",
       "Received Lacework's Inventor Award for the Kubernetes compliance and detection work.",
     ],
-    metric: { value: "$40M", label: "ARR, compliance + K8s bundle" },
+    metric: { value: "7", label: "Contracts at $2–6M each, gated on K8s compliance" },
   },
   {
     layer: "Govern",
