@@ -5,7 +5,7 @@ export type Project = {
   name: string
   tags: string[]
   year: string
-  status: "Live" | "Paused" | "Active build" | "Prototype"
+  status: "Live" | "Paused" | "Shipped, then paused" | "Active build" | "Prototype"
   /** One plain sentence for the card. No jargon. */
   blurb: string
   icon: "contract" | "story" | "brain" | "search"
@@ -106,7 +106,7 @@ export const projects: Project[] = [
     name: "Storytime AI",
     tags: ["Voice GenAI", "EdTech"],
     year: "2024–25",
-    status: "Paused",
+    status: "Shipped, then paused",
     icon: "story",
     blurb:
       "A new bedtime story every night, made up on the spot, told out loud — and the child decides what happens next.",
@@ -115,11 +115,11 @@ export const projects: Project[] = [
     hard:
       "The experience had to feel effortless while the backend orchestrated speech-to-text, LLM prompting, token management, safety filtering, fallback logic, personalization and text-to-speech in near real time. And the users were children — so safety mattered more than novelty, and latency was not an engineering metric but a product requirement. In a voice-first experience, a slow response breaks the spell.",
     how: [
-      "React and TypeScript front end, FastAPI back end, MongoDB for session and preference state, Firebase Auth with parent/child/admin roles.",
-      "Gemini 2.0 Flash via LangChain for generation, Universal-2 for speech-to-text, OpenAI for text-to-speech.",
-      "Story generation runs as a three-stage pipeline — start, continue, conclude — rather than one long generation, so a session can branch at each turn without regenerating what came before.",
-      "Narration streams over WebSockets, because waiting for a complete audio file before speaking breaks a voice-first experience.",
-      "Interaction cost is modelled per question type — roughly 30 tokens for a simple identification, 50 for a prediction, 80 for multi-part reasoning — so session length and cost can be planned before generation rather than discovered after.",
+      "Three clients against one Python backend: a native SwiftUI iOS app, a React and TypeScript web app, and a shared API.",
+      "Backend layered as presentation, business and data — versioned routers with typed request and response schemas, and services split by domain: auth, session, chat, parent, avatar, story theme and storytelling.",
+      "Gemini for generation, Universal-2 for speech-to-text, OpenAI for text-to-speech, MongoDB Atlas for session and profile state, Google Identity Platform for auth.",
+      "Story generation ran as a three-stage pipeline — start, continue, conclude — rather than one long generation, so a session could branch at each turn without regenerating what came before.",
+      "Deployed on Google Cloud Run behind Artifact Registry, with separate dev and production environments defined in Terraform and shipped by GitHub Actions.",
       "Trust designed before intelligence — prompt constraints, content guardrails, token caps, retry logic and fallback paths.",
       "Compliance designed in from the start: COPPA, GDPR-K, IEEE 7000 and UNICEF AI guidance.",
     ],
@@ -138,6 +138,16 @@ export const projects: Project[] = [
         title: "Every constant in the system traces to child development research",
         body:
           "The numbers that govern a session are not round numbers somebody liked. A story uses 80% of a child's attention span rather than 100%, because learning degrades when cognitive load is maxed out and the remaining 20% absorbs distraction and thinking time. Interactions cap at 8, from Miller's 7±2 working-memory limit. Question complexity bands at 0.4 and 0.7 map to Piaget's stages — preoperational at 3–4 gets \"what colour is the bear?\", early concrete operational at 5–6 gets \"what do you think happens next?\", and 7–9 gets \"how would you help them solve this?\". Ten percent of every story is reserved for transitions and dramatic pauses, from conversation-flow research. Writing the reasoning down next to each constant is what let the system be tuned later against real usage instead of re-argued from scratch.",
+      },
+      {
+        title: "CI/CD authenticated with Workload Identity Federation, not service-account keys",
+        body:
+          "GitHub Actions deploys to Google Cloud without a long-lived credential stored anywhere in the repo — the pipeline federates its identity and receives short-lived tokens instead. For a children\u2019s product holding profile data, a leaked deploy key is the kind of mistake you only get to make once. It cost an afternoon of setup and removed an entire class of breach.",
+      },
+      {
+        title: "The API was versioned before it needed to be",
+        body:
+          "Storytelling shipped as v1 and later v2 with the breaking changes documented, while v1 stayed up. With a native iOS app in the App Store you cannot force everyone onto a new contract on your schedule \u2014 users update when they update. Versioning from the start is what lets the backend move without stranding a phone.",
       },
       {
         title: "A story's token budget is split 15 / 70 / 15",
@@ -162,13 +172,19 @@ export const projects: Project[] = [
         source: "Built with a single engineer.",
       },
       {
+        value: "3",
+        label: "Clients on one API — iOS, web, backend",
+        source:
+          "Plus a fourth repository holding the Terraform that defines both environments. Infrastructure was code, not console clicks.",
+      },
+      {
         value: "200+",
         label: "Pilot participants",
         source: "Reached during the live period.",
       },
     ],
     knownGaps: [
-      "Paused, not shipped-and-forgotten. Running it depended on one engineer, and per-story inference cost outran what the product could recover — around $100/month at pilot scale with no revenue.",
+      "Paused, not shipped-and-forgotten. It ran in production on Cloud Run with dev and prod environments, but per-story inference cost outran what the product could recover — around $100/month at pilot scale with no revenue — and the team was small enough that continuity depended on very few people.",
       "That is the real lesson, and it is a product lesson rather than a technical one: shipping an MVP is not the same as building something maintainable, measurable and independently operable.",
       "A cost model exists for the rebuild. The economics have to work at the unit level before it goes live again.",
       "The PRD set an evaluation framework — relevance, age-fit, interactivity, toxicity, quarterly bias audits, fallback logging — with targets of NPS above 40 and hallucination under 5%. Those were the bar, not a measured result. Designing the framework is not the same as running it.",
@@ -180,8 +196,7 @@ export const projects: Project[] = [
       vertical: true,
     },
     links: [
-      { label: "Repo", href: null, note: "private — code recovery in progress" },
-      { label: "Cost model", href: null, note: "in prototype repo" },
+      { label: "Repos", href: null, note: "private — backend, iOS, web and infrastructure" },
     ],
   },
   {
