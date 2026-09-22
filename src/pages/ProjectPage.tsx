@@ -195,6 +195,30 @@ export default function ProjectPage() {
         </ul>
       </Section>
 
+      {p.diagram && (
+        <Section label="Architecture" title="How it flows">
+          {p.diagram.caption && (
+            <p style={{ color: 'var(--muted)', marginTop: 0, marginBottom: 20 }}>{p.diagram.caption}</p>
+          )}
+          <div className="flow">
+            {p.diagram.lanes.map((lane) => (
+              <div className="flow-lane" key={lane.label ?? lane.steps[0]}>
+                {lane.label && <div className="flow-lane-label">{lane.label}</div>}
+                <div className="flow-steps">
+                  {lane.steps.map((step, i) => (
+                    <div key={step} style={{ display: 'contents' }}>
+                      {i > 0 && <span className="flow-arrow" aria-hidden>→</span>}
+                      <div className="flow-step">{step}</div>
+                    </div>
+                  ))}
+                </div>
+                {lane.note && <p className="flow-note">{lane.note}</p>}
+              </div>
+            ))}
+          </div>
+        </Section>
+      )}
+
       <Section label="Decisions">
         <div style={{ display: 'grid', gap: 26 }}>
           {p.decisions.map((d) => (

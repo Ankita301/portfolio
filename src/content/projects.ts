@@ -21,6 +21,11 @@ export type Project = {
   measured: { value: string; label: string; source: string }[]
   /** Required. Where it goes next, stated honestly — limits included. */
   whatsNext: string[]
+  /** How it actually flows. Rendered as lanes of steps. */
+  diagram?: {
+    caption?: string
+    lanes: { label?: string; steps: string[]; note?: string }[]
+  }
   /** A working demo, where one exists. Vertical for phone-shot video. */
   demo?: { youtubeId: string; caption: string; vertical?: boolean }
   links: Link[]
@@ -46,6 +51,22 @@ export const projects: Project[] = [
       "Structured extraction against a term schema built specifically for NDA and MSA structures, validated with zod.",
       "Chat answers are constrained to the uploaded document. Questions the contract does not cover get refused rather than guessed.",
     ],
+    diagram: {
+      caption:
+        "Two paths off one document. Extraction is structured and attributable; chat is constrained to the same text and refuses when the contract does not answer.",
+      lanes: [
+        {
+          label: "Extraction",
+          steps: ["PDF upload", "Text + page offsets", "Typed schema (zod)", "Terms + page + confidence", "Review UI"],
+          note: "Page offsets are preserved at parse time — attribution is a property of how you read the document, not a feature bolted on later.",
+        },
+        {
+          label: "Chat",
+          steps: ["Question", "Injection guard", "Contract text only", "Grounded answer — or refusal"],
+          note: "The guard runs on the user's message, never on the contract. Contract text is untrusted data, and the chat has no tools to abuse.",
+        },
+      ],
+    },
     decisions: [
       {
         title: "Confidence scores are shown to the user, not hidden",
@@ -124,6 +145,26 @@ export const projects: Project[] = [
       "Trust designed before intelligence — prompt constraints, content guardrails, token caps, retry logic and fallback paths.",
       "Compliance designed in from the start: COPPA, GDPR-K, IEEE 7000 and UNICEF AI guidance.",
     ],
+    diagram: {
+      caption: "The voice loop, built twice. v1 owned every hop; v2 traded per-turn control for a faster turn.",
+      lanes: [
+        {
+          label: "v1 — self-orchestrated",
+          steps: ["Child speaks", "WebSocket", "Universal-2 STT", "Gemini", "OpenAI TTS", "Child hears"],
+          note: "Total control of prompt, pacing and guardrails — and latency equal to the sum of three hops plus three inference calls.",
+        },
+        {
+          label: "v2 — conversational agent",
+          steps: ["Child speaks", "ElevenLabs agent", "Child hears"],
+          note: "The backend keeps what only it can do: auth, session state, story setup, and an HMAC-verified webhook recording what happened. v1 stayed live, because a shipped iOS app cannot be force-migrated.",
+        },
+        {
+          label: "Platform",
+          steps: ["iOS (SwiftUI)", "Web (React)", "Python API", "Cloud Run", "MongoDB Atlas"],
+          note: "Dev and prod both defined in Terraform. CI/CD authenticates by Workload Identity Federation — no long-lived deploy credentials.",
+        },
+      ],
+    },
     decisions: [
       {
         title: "Trust before intelligence",
@@ -219,6 +260,21 @@ export const projects: Project[] = [
       "The compile step is strictly read-only against Snowflake. Every write goes to the local wiki.",
       "Follows Karpathy's LLM-as-compiler pattern: the model is the compiler, the wiki is the output, the sources are the input.",
     ],
+    diagram: {
+      caption: "Raw sources are immutable. The wiki is build output — regenerated, never hand-edited.",
+      lanes: [
+        {
+          label: "Ingest",
+          steps: ["YouTube · LinkedIn · Zoom", "push-data-to-snowflake", "Snowflake"],
+          note: "Captures land in raw/ and are never mutated. Superseded ones move to Archive/ so provenance survives.",
+        },
+        {
+          label: "Compile",
+          steps: ["build-wiki (read-only)", "Ontology pass", "Cross-link", "wiki/ + index"],
+          note: "Strictly read-only against the warehouse. A bad run costs a rebuild, never the corpus.",
+        },
+      ],
+    },
     decisions: [
       {
         title: "Compilation, not summarization",
@@ -277,6 +333,16 @@ export const projects: Project[] = [
       "LangChain for orchestration, Pinecone for vector search, DeepSeek for generation, Postgres for state, deployed on AWS.",
       "Tuned on retrieval quality and latency together, since improving one at the expense of the other produced a product nobody used.",
     ],
+    diagram: {
+      caption: "Retrieval quality and latency tuned together — improving one at the other's expense produced a product nobody used.",
+      lanes: [
+        {
+          label: "Retrieval",
+          steps: ["Question", "Embed", "Pinecone", "Relevant context", "DeepSeek", "Answer"],
+          note: "LangChain orchestrates, Postgres holds state, deployed on AWS.",
+        },
+      ],
+    },
     decisions: [
       {
         title: "Optimised for mentor workload, not answer volume",

@@ -258,11 +258,8 @@ export default function Home() {
           </h2>
 
           <div
-            style={{
-              display: 'grid',
-              gap: 18,
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            }}
+            className="card-grid"
+            style={{ display: 'grid', gap: 18 }}
           >
             {projects.map((p, i) => (
               <ProjectCard key={p.slug} p={p} i={i} />

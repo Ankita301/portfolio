@@ -115,3 +115,52 @@ a { color: inherit; text-decoration: none; }
     gap: 16px;
   }
 }
+
+
+/* ---- project cards: one column on phones, a 2x2 square above ---- */
+.card-grid { grid-template-columns: 1fr; }
+@media (min-width: 720px) {
+  .card-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---- architecture flow ---- */
+.flow { display: grid; gap: 14px; }
+.flow-lane {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 16px 18px;
+}
+.flow-lane-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.flow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 8px;
+}
+.flow-step {
+  border: 1px solid var(--line);
+  background: var(--ink);
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  display: flex;
+  align-items: center;
+}
+.flow-arrow {
+  color: var(--accent);
+  align-self: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.flow-note {
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
