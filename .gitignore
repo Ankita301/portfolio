@@ -8,5 +8,3 @@ dist/
 *.local
 dist/
 
-# held back until the token has `workflow` scope; see WORKFLOW-SETUP.md
-.github/workflows/
