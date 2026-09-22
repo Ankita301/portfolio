@@ -45,7 +45,7 @@ export const roles: Role[] = [
     title: "Senior Technical Product Manager, StorageGRID",
     dates: "Aug 2025 – Jul 2026",
     context:
-      "A $500M product line — on-prem S3-compatible object storage at exabyte scale, powering data lakes, lakehouses and AI workloads. Named a Leader in The Forrester Wave™: Object Storage Solutions, Q2 2026, with above-average customer feedback.",
+      "Named a Leader in The Forrester Wave™: Object Storage Solutions, Q2 2026, with above-average customer feedback. On-prem S3-compatible object storage at exabyte scale — a $500M product line powering data lakes, lakehouses and AI workloads.",
     scope:
       "Sole PM on the Data Lakehouse — a company top-10 priority, reporting through Senior Director and VP to CEO George Kurian.",
     points: [
@@ -66,14 +66,15 @@ export const roles: Role[] = [
     company: "Storytime AI",
     title: "AI Product Lead / Cofounder",
     dates: "Apr 2024 – Aug 2025",
-    context: "Voice-first GenAI storytelling for EdTech. Selected by Google's AI Startup Program.",
+    context: "Voice-first GenAI storytelling for EdTech, shipped to production and reaching ~300 users at peak. Selected by Google's AI Startup Program.",
     scope: "Cofounder. Product, design and go-to-market, with one engineer.",
     points: [
-      "Launched a GenAI storytelling MVP in under 60 days on LangChain, Gemini 2.0 Flash and GCP.",
-      "Designed multi-modal AI orchestration with Universal-2 speech-to-text and OpenAI text-to-speech at sub-second latency.",
+      "Launched a GenAI storytelling MVP in under 60 days, then scaled it into a production system: native SwiftUI iOS app, React web app, and a layered Python API on Google Cloud Run with dev and prod environments defined in Terraform.",
+      "Designed the voice architecture twice. v1 orchestrated the loop itself — Universal-2 speech-to-text, Gemini, OpenAI text-to-speech over WebSockets. v2 replaced it with ElevenLabs conversational agents to cut turn latency, keeping v1 live because a shipped iOS app cannot be force-migrated.",
       "Delivered COPPA and GDPR-compliant personalized learning through user milestones, feedback loops and token-optimized prompts.",
+      "Authenticated CI/CD with Workload Identity Federation rather than service-account keys — no long-lived deploy credential anywhere in the pipeline.",
     ],
-    metric: { value: "100%", label: "Early-adopter retention" },
+    metric: { value: "~300", label: "Users at peak, 100% early-adopter retention" },
   },
   {
     layer: "Secure",

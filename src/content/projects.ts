@@ -220,13 +220,13 @@ export const projects: Project[] = [
           "Plus a fourth repository holding the Terraform that defines both environments. Infrastructure was code, not console clicks.",
       },
       {
-        value: "200+",
-        label: "Pilot participants",
-        source: "Reached during the live period.",
+        value: "~300",
+        label: "Users at peak",
+        source: "Reached while the product ran in production.",
       },
     ],
     whatsNext: [
-      "Paused rather than abandoned. It ran in production on Cloud Run across dev and prod, but per-story inference outran what the product could recover — roughly $100/month at pilot scale against no revenue — and the team was small enough that continuity rested on very few people.",
+      "Production-grade and paused, not abandoned. It ran on Cloud Run across dev and prod with real users, but per-story inference outran what the product could recover — roughly $100/month at pilot scale against no revenue — and the team was small enough that continuity rested on very few people.",
       "That is the real lesson, and it is a product lesson rather than a technical one: shipping an MVP is not the same as building something maintainable, measurable and independently operable.",
       "A restart depends on unit economics, not engineering. The cost model exists; per-story inference has to clear its own bar before this goes live again.",
       "The PRD set an evaluation framework — relevance, age-fit, interactivity, toxicity, quarterly bias audits, fallback logging — with targets of NPS above 40 and hallucination under 5%. Those were the bar, not a measured result. Designing the framework is not the same as running it.",
