@@ -108,7 +108,7 @@ export const projects: Project[] = [
         value: "76%",
         label: "First scored eval run, four dimensions",
         source:
-          "Azure AI Foundry, msa-contract-agent-eval-v1, run 23 September 2026. Relevance 100%, response completeness 100%, task completion 80%, retrieval 80% — 91 of 119 points overall. Small suite, honestly scored. Retrieval is the named gap for v2.",
+          "Azure AI Foundry, msa-contract-agent-eval-v1, run 23 September 2026. Five evaluation questions against a real MSA, scored on individual turns so each question stands alone: relevance 100%, response completeness 100%, task completion 80%, retrieval 80% — 91 of 119 points. Small suite, honestly scored. Retrieval is the named gap for v2.",
       },
     ],
     whatsNext: [
@@ -116,6 +116,7 @@ export const projects: Project[] = [
       "OCR is the next market expansion. Extraction currently needs real text, and scanned contracts are a large share of what small businesses actually receive.",
       "Closing the feedback loop is the defensibility story: corrections are already captured, they just do not yet feed prompt quality.",
       "Retrieval is now the measured gap, not a guess. The first scored run put relevance and completeness at 100% and retrieval at 80% — so the next work is what gets fetched, not how the answer is written.",
+      "Re-running the same dataset with a different judge model is the next eval step. An LLM-as-a-Judge score is a measurement instrument, and an instrument you have not calibrated is a number you cannot lean on.",
     ],
     links: [
       { label: "Repo", href: "https://github.com/Ankita301/contractiq" },
