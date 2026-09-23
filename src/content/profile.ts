@@ -114,8 +114,8 @@ export const roles: Role[] = [
     scope: "Panzura Filer, then Panzura Data Services after promotion. Two PMs reporting. Reported to the CPO throughout.",
     points: [
       "Repositioned Panzura Filer across Azure, AWS and GCP — distributed file storage with lifecycle governance, driving 40%+ ARR growth.",
-      "Built the identity and access system (IAM, STS), cutting onboarding from 40+ manual steps to a fraction — an 87% reduction.",
-      "Extended that access model to GovCloud and air-gapped deployments, enabling satellite-based file transfer for defense customers. $20M+ in the first year, then a further $15M in year two from a second US intelligence agency — $35M across the two.",
+      "Built the Central Management System (CMS) on AWS identity management — centralised configuration and access across a fleet, cutting onboarding from 40+ manual steps by 87%.",
+      "Took the platform into GovCloud and air-gapped environments for the US intelligence community, validating satellite-based file transfer where normal connectivity could not be assumed. $20M+ in the first year, then a further $15M in year two from a second agency — $35M across the two.",
       "Re-architected the hybrid cloud control plane for secure governance of petabyte-scale unstructured data in regulated industries.",
       "Launched data health dashboards giving CISOs visibility into file lifecycle and decommissioning — 30+ Fortune 500 customers within six months.",
       "Mentored 2 PMs to own roadmap delivery against go-to-market objectives.",
