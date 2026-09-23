@@ -13,7 +13,7 @@ export const profile = {
   /** Four facts, above the fold. Categorise, then believe. */
   proof: [
     "5+ 0→1 products launched",
-    "$100M+ ARR delivered",
+    "$60M+ ARR grown and unlocked",
     "2 granted US patents",
     "Exabyte scale",
     "GenAI shipped to production",
@@ -24,8 +24,8 @@ export const profile = {
 
   /** The stack — what was built at each layer, not what it taught me. */
   thesis: [
-    { layer: "Govern", body: "Panzura. Petabyte-scale governance into air-gapped federal. $35M." },
-    { layer: "Secure", body: "Lacework. Kubernetes compliance at $40M ARR, two granted patents." },
+    { layer: "Govern", body: "Panzura. Petabyte-scale governance into air-gapped federal. $25M+." },
+    { layer: "Secure", body: "Lacework. Kubernetes compliance from $12M to $20M ARR, two granted patents." },
     { layer: "Consume", body: "Storytime. A GenAI product shipped to production on iOS and web." },
     { layer: "Activate", body: "NetApp. Exabyte-scale object storage turned into a lakehouse." },
   ],
@@ -67,7 +67,7 @@ export const roles: Role[] = [
       "Built and defended the business case — a $5M ARR opportunity on a $500M line — securing executive investment and alignment across 30+ stakeholders, 12+ functions and 4 engineering teams.",
       "Pitched the integration to 60 engineers and came away with 11 committed to building it — a coalition recruited rather than assigned.",
       "Owned licensing and packaging for the new tier, and built a support exposure model before launch so the organisation knew what the incremental caseload would cost it.",
-      "Launched Branch Buckets in StorageGRID 12.0 — isolated AI/ML experimentation on 10+ PB datasets without duplicating the underlying object data. 15% customer adoption.",
+      "Launched Branch Buckets in StorageGRID 12.0 — isolated AI/ML experimentation without duplicating the underlying object data. ~15% early adoption across workflows operating on 10+ PB.",
       "Selected Dremio as the OEM partner and took it through executive approval, engineering estimation and phase gating.",
       "It goes to market as Open Lakehouse on NetApp — a named breakout at NetApp INSIGHT 2026, September 29 to October 1.",
     ],
@@ -96,31 +96,31 @@ export const roles: Role[] = [
     context: "Cloud-native AI/ML security for Kubernetes compliance and threat detection. The work behind two granted US patents.",
     scope: "Kubernetes compliance, across three engineering teams — agent, platform, detection. Reported to a Principal PM, then a Director.",
     points: [
-      "Delivered $40M ARR owning Kubernetes compliance. Seven new enterprise contracts at $2–6M each were contingent on it, and existing customers required it to stay — demand pulled from both directions at once.",
+      "Grew Kubernetes Security Posture Management from roughly $12M to $20M ARR across 200+ enterprise customers — CIS compliance, runtime visibility and node-level telemetry across EKS and GKE.",
       "Launched Kubernetes Security Posture Management for Amazon EKS and Google GKE, securing 200+ enterprise environments to CIS Benchmark compliance.",
       "Turned CIS Benchmarks from prose into executable Rego/OPA policy, backed by three collector types — node-level DaemonSets, cluster-level via the Kubernetes API, and control-plane collectors — normalized through an agent that tagged KSPM data separately so it never disturbed existing CSPM customers.",
       "Integrated telemetry and audit logs into the Polygraph ML engine, enabling real-time behavioral drift detection and anomaly correlation.",
-      "Launched CIS Policy Preview and Kubernetes Audit Logs — adopted by roughly 80% of Kubernetes customers.",
+      "Launched Kubernetes audit-log ingestion — visibility into API activity, privilege misuse and identity changes — contributing a 5% increase in customer acquisition.",
       "Named inventor on two granted US patents from this work — US 12,563,060, cloud compliance monitoring for container-orchestrated environments, and US 12,425,428, activity monitoring from container orchestration data. Both granted after I left, assigned to Fortinet. Lacework's Inventor Award followed the filings.",
     ],
-    metric: { value: "$40M", label: "ARR from KSPM" },
+    metric: { value: "$12M→$20M", label: "KSPM ARR growth" },
   },
   {
     layer: "Govern",
     company: "Panzura",
-    title: "Senior Technical Product Manager",
+    title: "Product Manager → Senior Product Manager",
     dates: "Jun 2019 – Nov 2021",
     context: "Hybrid cloud storage for unstructured data across AWS, Azure and GCP. Two products: Panzura Filer, then Panzura Data Services.",
     scope: "Panzura Filer, then Panzura Data Services after promotion. Two PMs reporting. Reported to the CPO throughout.",
     points: [
       "Repositioned Panzura Filer across Azure, AWS and GCP — distributed file storage with lifecycle governance, driving 40%+ ARR growth.",
       "Built the Central Management System (CMS) for Panzura Data Services, on AWS identity management — centralised configuration and access across a fleet, cutting onboarding from 40+ manual steps by 87%.",
-      "Took the platform into GovCloud and air-gapped environments for the US intelligence community, validating satellite-based file transfer where normal connectivity could not be assumed. $20M+ in the first year, then a further $15M in year two from a second agency — $35M across the two.",
+      "Took the platform into GovCloud and air-gapped environments for the US intelligence community, validating satellite-based file transfer where normal connectivity could not be assumed. Unlocked $25M+ in federal business.",
       "Re-architected the hybrid cloud control plane for secure governance of petabyte-scale unstructured data in regulated industries.",
       "Launched data health dashboards giving CISOs visibility into file lifecycle and decommissioning — 30+ Fortune 500 customers within six months.",
       "Mentored 2 PMs to own roadmap delivery against go-to-market objectives.",
     ],
-    metric: { value: "$35M", label: "Federal ARR over two years" },
+    metric: { value: "$25M+", label: "Federal business unlocked" },
   },
   {
     layer: "Ship",
