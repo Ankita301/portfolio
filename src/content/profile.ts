@@ -59,7 +59,7 @@ export const roles: Role[] = [
     context:
       "Named a Leader in The Forrester Wave™: Object Storage Solutions, Q2 2026, with above-average customer feedback. On-prem S3-compatible object storage at exabyte scale — a $500M product line powering data lakes, lakehouses and AI workloads.",
     scope:
-      "Sole PM on the Data Lakehouse — a company top-10 priority, reporting through Senior Director and VP to CEO George Kurian.",
+      "Owned the Data Lakehouse end to end — a company top-10 priority, reporting through Senior Director and VP to CEO George Kurian.",
     points: [
       "Led 0→1 StorageGRID Data Lakehouse strategy: analytics built into the storage platform rather than deployed on top of it. The difference is the product — one install, one upgrade path, one support call, and the grid admin keeps full visibility instead of operating a second system alongside it. Addressable across a 3,000+ customer installed base.",
       "Drove the build-versus-partner decision and OEM selection in 90 days, compressing a multi-year build path to under one year.",
@@ -94,9 +94,9 @@ export const roles: Role[] = [
     title: "Senior Technical Product Manager",
     dates: "Nov 2021 – Sep 2023",
     context: "Cloud-native AI/ML security for Kubernetes compliance and threat detection. The work behind two granted US patents.",
-    scope: "Sole PM for Kubernetes compliance, reporting to a Principal PM and then a Director.",
+    scope: "Owned Kubernetes compliance across three engineering teams. Reported to a Principal PM, then a Director.",
     points: [
-      "Delivered $40M ARR as sole PM on Kubernetes compliance. Seven new enterprise contracts at $2–6M each were contingent on it, and existing customers required it to stay — demand pulled from both directions at once.",
+      "Delivered $40M ARR owning Kubernetes compliance. Seven new enterprise contracts at $2–6M each were contingent on it, and existing customers required it to stay — demand pulled from both directions at once.",
       "Launched Kubernetes Security Posture Management for Amazon EKS and Google GKE, securing 200+ enterprise environments to CIS Benchmark compliance.",
       "Turned CIS Benchmarks from prose into executable Rego/OPA policy, backed by three collector types — node-level DaemonSets, cluster-level via the Kubernetes API, and control-plane collectors — normalized through an agent that tagged KSPM data separately so it never disturbed existing CSPM customers.",
       "Integrated telemetry and audit logs into the Polygraph ML engine, enabling real-time behavioral drift detection and anomaly correlation.",
@@ -111,7 +111,7 @@ export const roles: Role[] = [
     title: "Senior Technical Product Manager",
     dates: "Jun 2019 – Nov 2021",
     context: "Hybrid cloud storage for unstructured data across AWS, Azure and GCP. Two bets: repositioning the Filer, and building identity-linked access.",
-    scope: "Sole PM on Panzura Filer, then promoted to Panzura Data Services with 2 PMs reporting to me. Reported to the CPO throughout.",
+    scope: "Owned Panzura Filer, then promoted to Panzura Data Services with 2 PMs reporting. Reported to the CPO throughout.",
     points: [
       "Repositioned Panzura Filer across Azure, AWS and GCP — distributed file storage with lifecycle governance, driving 40%+ ARR growth.",
       "Built the identity and access system (IAM, STS), cutting onboarding from 40+ manual steps to a fraction — an 87% reduction.",
@@ -128,9 +128,9 @@ export const roles: Role[] = [
     title: "Product Manager, Zephyr Enterprise",
     dates: "Oct 2017 – May 2019",
     context: "SaaS test management driving DevOps automation.",
-    scope: "The only PM on Zephyr Enterprise, and the first PM role of my career.",
+    scope: "Owned Zephyr Enterprise end to end — the first PM role of my career.",
     points: [
-      "Owned the Zephyr Enterprise product lifecycle end to end — test requirements, repository, planning, execution and defect tracking. $35M+ ARR growing 12% a year.",
+      "Owned the Zephyr Enterprise product lifecycle — test requirements, repository, planning, execution and defect tracking. $35M+ ARR growing 12% a year.",
       "Launched Zephyr Maestro v1, a SaaS DevOps pipeline tool, within 120 days of proof-of-concept — every user onboarded.",
       "Ran the beta with Staples before opening it to the full Zephyr customer base, using a single demanding enterprise to find the failure modes before they became support tickets.",
     ],
