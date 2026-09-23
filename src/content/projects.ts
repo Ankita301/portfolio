@@ -49,6 +49,8 @@ export const projects: Project[] = [
       "Next.js 14 app with Supabase for auth and document storage, and Upstash for rate limiting.",
       "PDF text extraction with page offsets preserved, so every extracted term can point back to where it came from.",
       "Structured extraction against a term schema built specifically for NDA and MSA structures, validated with zod.",
+      "An intent router classifies every message before retrieval runs. Contract questions go through query rewriting and the RAG agent; general questions get a direct answer and never touch the vector store.",
+      "Retrieved chunks are cited inline, so an answer can be traced to the passages it came from.",
       "Chat answers are constrained to the uploaded document. Questions the contract does not cover get refused rather than guessed.",
     ],
     diagram: {
@@ -62,8 +64,8 @@ export const projects: Project[] = [
         },
         {
           label: "Chat",
-          steps: ["Question", "Injection guard", "Contract text only", "Grounded answer — or refusal"],
-          note: "The guard runs on the user's message, never on the contract. Contract text is untrusted data, and the chat has no tools to abuse.",
+          steps: ["Question", "Intent router", "Query rewrite", "Retrieve + cite chunks", "Grounded answer — or refusal"],
+          note: "The router decides whether retrieval runs at all — general questions skip it entirely. The injection guard runs on the user's message, never on the contract. Contract text is untrusted data, and the chat has no tools to abuse.",
         },
       ],
     },
@@ -77,6 +79,11 @@ export const projects: Project[] = [
         title: "Purpose-built for two contract types instead of all of them",
         body:
           "A generic extractor pulls out something from any document. A schema built for NDA and MSA structures pulls out the twenty to thirty terms that actually decide whether you should sign. Narrow beats broad when the output has consequences.",
+      },
+      {
+        title: "Retrieval is conditional, not automatic",
+        body:
+          "Every message used to be forced through query rewriting and vector search \u2014 including \u201chi\u201d. An intent router now classifies first: contract questions go through retrieval, everything else is answered directly at zero retrieval cost. Better retrieval is not useful when retrieval was not needed in the first place.",
       },
       {
         title: "Answers are grounded in the document, never in the model",
@@ -98,17 +105,17 @@ export const projects: Project[] = [
           "Architecture, auth, extraction, chat, RLS and API contracts specified up front, plus the Supabase schema.",
       },
       {
-        value: "HHH",
-        label: "Evaluation harness — specified, in build",
+        value: "76%",
+        label: "First scored eval run, four dimensions",
         source:
-          "Golden datasets, SME-scored rubrics, LLM-as-a-Judge, precision/recall, BLEU/ROUGE, and alpha-to-GA thresholds are designed in the PRD. The harness itself is being built in September 2026 and is not in the repo yet.",
+          "Azure AI Foundry, msa-contract-agent-eval-v1, run 23 September 2026. Relevance 100%, response completeness 100%, task completion 80%, retrieval 80% — 91 of 119 points overall. Small suite, honestly scored. Retrieval is the named gap for v2.",
       },
     ],
     whatsNext: [
       "Out-of-scope detection comes before any new contract type. Today an employment agreement extracts plausible output against the wrong schema, which is the exact failure this product exists to prevent.",
       "OCR is the next market expansion. Extraction currently needs real text, and scanned contracts are a large share of what small businesses actually receive.",
       "Closing the feedback loop is the defensibility story: corrections are already captured, they just do not yet feed prompt quality.",
-      "The evaluation harness is in build now. A product that refuses to guess needs a way to prove it refuses correctly, and that is the current work.",
+      "Retrieval is now the measured gap, not a guess. The first scored run put relevance and completeness at 100% and retrieval at 80% — so the next work is what gets fetched, not how the answer is written.",
     ],
     links: [
       { label: "Repo", href: "https://github.com/Ankita301/contractiq" },
