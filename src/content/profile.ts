@@ -110,11 +110,11 @@ export const roles: Role[] = [
     company: "Panzura",
     title: "Senior Technical Product Manager",
     dates: "Jun 2019 – Nov 2021",
-    context: "Hybrid cloud storage for unstructured data across AWS, Azure and GCP. Two bets: repositioning the Filer, and building identity-linked access.",
+    context: "Hybrid cloud storage for unstructured data across AWS, Azure and GCP. Two products: Panzura Filer, then Panzura Data Services.",
     scope: "Panzura Filer, then Panzura Data Services after promotion. Two PMs reporting. Reported to the CPO throughout.",
     points: [
       "Repositioned Panzura Filer across Azure, AWS and GCP — distributed file storage with lifecycle governance, driving 40%+ ARR growth.",
-      "Built the Central Management System (CMS) on AWS identity management — centralised configuration and access across a fleet, cutting onboarding from 40+ manual steps by 87%.",
+      "Built the Central Management System (CMS) for Panzura Data Services, on AWS identity management — centralised configuration and access across a fleet, cutting onboarding from 40+ manual steps by 87%.",
       "Took the platform into GovCloud and air-gapped environments for the US intelligence community, validating satellite-based file transfer where normal connectivity could not be assumed. $20M+ in the first year, then a further $15M in year two from a second agency — $35M across the two.",
       "Re-architected the hybrid cloud control plane for secure governance of petabyte-scale unstructured data in regulated industries.",
       "Launched data health dashboards giving CISOs visibility into file lifecycle and decommissioning — 30+ Fortune 500 customers within six months.",
