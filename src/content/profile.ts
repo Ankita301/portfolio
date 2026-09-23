@@ -24,10 +24,10 @@ export const profile = {
 
   /** The stack — what was built at each layer, not what it taught me. */
   thesis: [
-    { layer: "Govern", body: "Panzura. Petabyte-scale data, governed, air-gapped, federal." },
-    { layer: "Secure", body: "Lacework. Kubernetes compliance at $40M ARR." },
-    { layer: "Consume", body: "Storytime. A GenAI product shipped to production." },
-    { layer: "Activate", body: "NetApp. Exabyte-scale object storage made AI-ready." },
+    { layer: "Govern", body: "Panzura. Petabyte-scale governance into air-gapped federal. $35M." },
+    { layer: "Secure", body: "Lacework. Kubernetes compliance at $40M ARR, two granted patents." },
+    { layer: "Consume", body: "Storytime. A GenAI product shipped to production on iOS and web." },
+    { layer: "Activate", body: "NetApp. Exabyte-scale object storage turned into a lakehouse." },
   ],
 
   summary:
