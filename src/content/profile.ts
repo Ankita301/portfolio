@@ -108,7 +108,7 @@ export const roles: Role[] = [
   {
     layer: "Govern",
     company: "Panzura",
-    title: "Senior Technical Product Manager",
+    title: "Senior Product Manager",
     dates: "Jun 2019 – Nov 2021",
     context: "Hybrid cloud storage for unstructured data across AWS, Azure and GCP. Two bets: repositioning the Filer, and building identity-linked access.",
     scope: "Sole PM on Panzura Filer, then promoted to Panzura Data Services with 2 PMs reporting to me. Reported to the CPO throughout.",
