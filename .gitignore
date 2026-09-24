@@ -8,3 +8,7 @@ dist/
 *.local
 dist/
 
+
+# Working notes — never publish
+docs/
+*.tsbuildinfo
