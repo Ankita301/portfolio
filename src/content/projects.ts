@@ -119,14 +119,10 @@ export const projects: Project[] = [
       "Re-running the same dataset with a different judge model is the next eval step. An LLM-as-a-Judge score is a measurement instrument, and an instrument you have not calibrated is a number you cannot lean on.",
     ],
     links: [
-      { label: "Repo", href: "https://github.com/Ankita301/contractiq" },
       {
-        label: "PRD",
-        href: "https://github.com/Ankita301/contractiq/blob/main/docs/ContractIQ_PRD.md",
-      },
-      {
-        label: "Security plan",
-        href: "https://github.com/Ankita301/contractiq/blob/main/docs/security/security-plan.md",
+        label: "Repo, PRD & security plan",
+        href: null,
+        note: "private — I work in security, after all",
       },
     ],
   },
