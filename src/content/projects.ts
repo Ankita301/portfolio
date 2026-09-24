@@ -131,8 +131,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "storytime",
-    name: "Storytime AI",
+    slug: "lulu",
+    name: "Lulu",
     tags: ["Voice GenAI", "iOS · Web · GCP"],
     year: "2024–25",
     status: "Shipped, then paused",

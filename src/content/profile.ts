@@ -26,7 +26,7 @@ export const profile = {
   thesis: [
     { layer: "Govern", body: "Panzura. Petabyte-scale governance into air-gapped federal. $25M+." },
     { layer: "Secure", body: "Lacework. Kubernetes compliance from $12M to $20M ARR, two granted patents." },
-    { layer: "Consume", body: "Storytime. A GenAI product shipped to production on iOS and web." },
+    { layer: "Consume", body: "Lulu. A GenAI product shipped to production on iOS and web." },
     { layer: "Activate", body: "NetApp. Exabyte-scale object storage turned into a lakehouse." },
   ],
 
@@ -75,7 +75,7 @@ export const roles: Role[] = [
   },
   {
     layer: "Consume",
-    company: "Storytime AI",
+    company: "Lulu",
     title: "AI Product Lead / Cofounder",
     dates: "Apr 2024 – Aug 2025",
     context: "Voice-first GenAI storytelling for EdTech, shipped to production and reaching ~300 users at peak. Selected by Google's AI Startup Program.",
