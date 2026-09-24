@@ -31,7 +31,7 @@ export const profile = {
   ],
 
   summary:
-    "Ten years of product leadership across AI and data infrastructure, enterprise storage, cloud platforms and security. Built and scaled resilient platforms on Azure, AWS, GCP and hybrid environments — distributed file systems, unstructured data, secure cloud-native systems, and mission-critical infrastructure for regulated industries.",
+    "Distributed file systems, exabyte-scale object and unstructured data, Kubernetes security, air-gapped federal infrastructure — built on Azure, AWS, GCP and hybrid environments, for regulated industries where someone eventually audits the answer.",
 }
 
 export type Role = {
