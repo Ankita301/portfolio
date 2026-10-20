@@ -12,10 +12,10 @@ export const profile = {
 
   /** Four facts, above the fold. Categorise, then believe. */
   proof: [
-    "5+ 0→1 products launched",
-    "$60M+ ARR grown and unlocked",
+    "Exabyte-scale object storage",
+    "Lakehouse: decision to beta in 9 months",
     "2 granted US patents",
-    "Exabyte scale",
+    "Kubernetes security, $12M→$20M",
     "GenAI shipped to production",
   ],
 
@@ -59,16 +59,16 @@ export const roles: Role[] = [
     context:
       "Named a Leader in The Forrester Wave™: Object Storage Solutions, Q2 2026, with above-average customer feedback. On-prem S3-compatible object storage at exabyte scale — a $500M product line powering data lakes, lakehouses and AI workloads.",
     scope:
-      "The Data Lakehouse, end to end — a company top-ten priority. Four engineering teams, 12+ functions, 30+ stakeholders. Reported through Senior Director and VP to CEO George Kurian.",
+      "The Data Lakehouse, end to end — a company top-ten priority, reported up to the CEO's staff. Four engineering teams, 12+ functions, 30+ stakeholders.",
     points: [
-      "Led 0→1 StorageGRID Data Lakehouse strategy: analytics built into the storage platform rather than deployed on top of it. The difference is the product — one install, one upgrade path, one support call, and the grid admin keeps full visibility instead of operating a second system alongside it. Addressable across a 3,000+ customer installed base.",
+      "Led 0→1 StorageGRID Data Lakehouse strategy: analytics built into the storage platform rather than deployed on top of it. The difference is the product — one install, one upgrade path, one support call, and the grid admin keeps full visibility instead of operating a second system alongside it. Addressable across an installed base of about 2,500 enterprise customers.",
       "Drove the build-versus-partner decision and OEM selection in 90 days, compressing a multi-year build path to under one year.",
       "De-risked the bet before it was built: validated with an internal customer running 6 PB, and secured two Fortune 10 banks as beta partners who stayed engaged from MVP onward.",
-      "Built and defended the business case — a $5M ARR opportunity on a $500M line — securing executive investment and alignment across 30+ stakeholders, 12+ functions and 4 engineering teams.",
+      "Built and defended the business case on a $500M product line, securing executive investment and alignment across 30+ stakeholders, 12+ functions and 4 engineering teams.",
       "Pitched the integration to 60 engineers and came away with 11 committed to building it — a coalition recruited rather than assigned.",
       "Owned licensing and packaging for the new tier, and built a support exposure model before launch so the organisation knew what the incremental caseload would cost it.",
       "Launched Branch Buckets in StorageGRID 12.0 — isolated AI/ML experimentation without duplicating the underlying object data. ~15% early adoption across workflows operating on 10+ PB.",
-      "Selected Dremio as the OEM partner and took it through executive approval, engineering estimation and phase gating.",
+      "Selected Dremio as the OEM partner and took it through executive approval, engineering estimation and phase gating. Launched the beta in June 2026 — MVP to the internal AI team first, then early-access customers — with GA planned for November.",
       "It goes to market as Open Lakehouse on NetApp — a named breakout at NetApp INSIGHT 2026, September 29 to October 1.",
     ],
     metric: { value: "90 days", label: "Build-vs-partner call that cut years off time-to-market" },
@@ -78,7 +78,7 @@ export const roles: Role[] = [
     company: "Lulu",
     title: "AI Product Lead / Cofounder",
     dates: "Apr 2024 – Aug 2025",
-    context: "Voice-first GenAI storytelling for EdTech, shipped to production and reaching ~300 users at peak. Selected by Google's AI Startup Program.",
+    context: "Voice-first GenAI storytelling for EdTech, shipped to production and reaching ~200 users at peak from a 500-parent community. Selected by Google's AI Startup Program.",
     scope: "Cofounder. Product, architecture, design and go-to-market, across iOS, web and backend — with one engineer.",
     points: [
       "Launched a GenAI storytelling MVP in under 60 days, then scaled it into a production system: native SwiftUI iOS app, React web app, and a layered Python API on Google Cloud Run with dev and prod environments defined in Terraform.",
@@ -86,7 +86,7 @@ export const roles: Role[] = [
       "Delivered COPPA and GDPR-compliant personalized learning through user milestones, feedback loops and token-optimized prompts.",
       "Authenticated CI/CD with Workload Identity Federation rather than service-account keys — no long-lived deploy credential anywhere in the pipeline.",
     ],
-    metric: { value: "~300", label: "Users at peak, 100% early-adopter retention" },
+    metric: { value: "~200", label: "Users at peak, from a 500-parent community" },
   },
   {
     layer: "Secure",
