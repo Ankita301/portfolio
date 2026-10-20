@@ -15,7 +15,8 @@ export const profile = {
     "Exabyte-scale object storage",
     "Lakehouse: decision to beta in 9 months",
     "2 granted US patents",
-    "Kubernetes security, $12M→$20M",
+    "Lacework: Kubernetes security, $12M→$20M",
+    "Panzura: air-gapped federal storage, $25M+",
     "GenAI shipped to production",
   ],
 
