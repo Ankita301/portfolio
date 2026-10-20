@@ -1,4 +1,4 @@
-type Name = 'contract' | 'story' | 'brain' | 'search'
+type Name = 'contract' | 'story' | 'brain' | 'search' | 'layers' | 'funnel'
 
 /** One mark per project. Drawn from what the thing actually does, not decoration. */
 export default function Icon({ name, size = 22 }: { name: Name; size?: number }) {
@@ -51,6 +51,24 @@ export default function Icon({ name, size = 22 }: { name: Name; size?: number })
           <path d="M5 11v5c0 1.2 2.3 2.2 5.4 2.5" />
           <circle cx="16.8" cy="16.8" r="3.2" stroke="var(--accent)" />
           <path d="M19.2 19.2L21.5 21.5" stroke="var(--accent)" />
+        </svg>
+      )
+    // Object storage with a query engine sitting on it — analytics in place.
+    case 'layers':
+      return (
+        <svg {...common}>
+          <path d="M4 15.5l8 4 8-4" />
+          <path d="M4 11.5l8 4 8-4" />
+          <path d="M4 7.5l8 4 8-4-8-4z" />
+          <circle cx="18.5" cy="5.5" r="2.4" stroke="var(--accent)" />
+        </svg>
+      )
+    // A funnel: many prospects in, a qualified lead handed off.
+    case 'funnel':
+      return (
+        <svg {...common}>
+          <path d="M3 5h18l-7 8v6l-4 2v-8z" />
+          <path d="M17 17h4M19 15v4" stroke="var(--accent)" />
         </svg>
       )
   }
