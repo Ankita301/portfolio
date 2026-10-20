@@ -108,7 +108,7 @@ export const projects: Project[] = [
         value: "76%",
         label: "First scored eval run, four dimensions",
         source:
-          "Azure AI Foundry, msa-contract-agent-eval-v1, run 23 September 2026. Five evaluation questions against a real MSA, scored on individual turns so each question stands alone: relevance 100%, response completeness 100%, task completion 80%, retrieval 80% — 91 of 119 points. Small suite, honestly scored. Retrieval is the named gap for v2.",
+          "Azure AI Foundry, msa-contract-agent-eval-v1, run 23 September 2026. Five evaluation questions against a real MSA, scored on individual turns so each question stands alone: relevance 100%, response completeness 100%, task completion 80%, retrieval 80% — 91 of 119 points. Five questions is a small suite; one question moving one grade shifts the total by several points. Retrieval is the named gap for v2.",
       },
     ],
     whatsNext: [
@@ -134,17 +134,17 @@ export const projects: Project[] = [
     status: "Shipped to beta",
     icon: "layers",
     blurb:
-      "Analytics run directly on exabyte-scale object storage, so customers stop copying data out to query it. From a 90-day build-vs-partner decision to a beta launch in nine months.",
+      "Analytics run directly on exabyte-scale object storage, so customers stop copying data out to query it. From a one-quarter build-vs-partner decision to a beta launch, ten months after the strategy was set.",
     what:
       "StorageGRID is NetApp's S3-compatible object store — the place large enterprises keep hundreds of petabytes. The lakehouse puts a query engine inside the grid so that data can be analysed where it sits: one install, one upgrade path, one support call, and the storage admin keeps full visibility instead of running a second system beside the first.",
     hard:
       "Customers were copying data out to Databricks, Snowflake or a self-run Trino to analyse it — every copy costing money, time and a security review. Building an engine ourselves was a multi-year path. Partnering meant embedding someone else's software into a platform that does not run Kubernetes, and making it upgrade, recover, license and get supported like everything else on the grid. The product problem was not the query engine. It was making the engine disappear into the platform without the platform losing control of it.",
     how: [
-      "A 90-day build-versus-partner evaluation run like an enterprise buyer would: Dremio, Starburst/Trino, Databricks and an internal build, benchmarked in a lab another team let us stand up. Internal came out at two and a half to three years; the partner path at about nine months.",
+      "A one-quarter build-versus-partner evaluation run like an enterprise buyer would: Dremio, Starburst/Trino, Databricks and an internal build, benchmarked in a lab another team let us stand up. Internal came out at two and a half to three years; the partner path at about nine months.",
       "The shared Apache Iceberg catalog is the compatibility contract. The engine is replaceable; the table format and catalog are not, so the decision stays reversible.",
       "The engine inherits the grid's service lifecycle — install, operate, expand, decommission — plus rolling upgrades with pre-checks, node recovery and telemetry. It is never exposed as a raw configuration surface.",
-      "Two tiers with the same features. The free tier is one node's worth of query executors with no enforcement; the paid tier is a grid-wide memory entitlement that grows with the workload. Scale is the difference, never a feature cliff.",
-      "Supportable before sellable: a support exposure model sized the incremental caseload before launch, with first- and second-line in NetApp and third-line with the partner.",
+      "Two tiers with the same features: a free tier sized to invite trial, and a paid entitlement that grows with the workload. Scale is the difference, never a feature cliff.",
+      "Supportable before sellable: a support exposure model sized the incremental caseload before launch, so the support organisation knew what it was taking on.",
       "Stories, Day-0 and Day-1 docs and the first JIRA drafts were generated from the PRD with Claude and reviewed line by line by the engineers — the first project on the team to run that way end to end.",
     ],
     diagram: {
@@ -153,12 +153,12 @@ export const projects: Project[] = [
         {
           label: "Decision",
           steps: ["Customer discovery", "4-way evaluation", "Lab benchmark", "Partner, not build", "Two exec approvals"],
-          note: "Rejected the internal build because the window was closing, not because it could not be done. The partner was acquired three days after approval; the decision was re-run as a one-way door and held.",
+          note: "Rejected the internal build because the window was closing, not because it could not be done. The partner was acquired shortly after approval; the decision was re-run as a one-way door and held.",
         },
         {
           label: "Platform",
           steps: ["S3 object data", "Iceberg catalog", "Coordinator on admin node", "Stateless executors", "Grid lifecycle + telemetry"],
-          note: "No Kubernetes on the platform, so placement, eligibility and recovery were designed into the grid's own service model rather than borrowed.",
+          note: "The platform does not run Kubernetes, so placement, eligibility and recovery were designed into the grid's own service model. Shipping Day-2 operations without a scheduler doing it for you is the hard case; a CSI driver is the easy one.",
         },
         {
           label: "Launch",
@@ -171,12 +171,12 @@ export const projects: Project[] = [
       {
         title: "Partner, not build — and design for the partner leaving",
         body:
-          "An internal engine would have taken years the market was not going to wait for. Partnering got to beta in nine months. The hedge was architectural: the Iceberg catalog, not the engine, is what customers depend on, so a different engine can be dropped in without migrating data. That hedge was tested early — the partner was acquired three days after executive approval — and the decision survived because the exit was already designed.",
+          "An internal engine would have taken years the market was not going to wait for. Partnering got to beta inside a year. The hedge was architectural: the Iceberg catalog, not the engine, is what customers depend on, so a different engine can be dropped in without migrating data. That hedge was tested early — the partner was acquired shortly after executive approval — and the decision survived because the exit was already designed.",
       },
       {
         title: "Same features in both tiers; scale is the only difference",
         body:
-          "A free tier with missing features teaches customers that the product is crippled. A free tier that is simply small teaches them what the product does. One node's worth of executors, no enforcement, and a paid entitlement that grows with the grid — the upsell is the workload growing, not a feature being withheld.",
+          "A free tier with missing features teaches customers that the product is crippled. A free tier that is simply small teaches them what the product does. The upsell is the workload growing, not a feature being withheld.",
       },
       {
         title: "Gate approvals on readiness, not on the demo",
@@ -184,16 +184,16 @@ export const projects: Project[] = [
           "The prototype demoed well in March. The second executive approval was gated on things a demo cannot show: pricing accepted, support model agreed, legal done, engineers assigned. Both approvals came through, and the project went to beta with the support organisation already knowing what the caseload would cost it.",
       },
       {
-        title: "Recruit the engineers, do not assign them",
+        title: "Brief sixty engineers; let eleven volunteer",
         body:
-          "Sixty engineers were briefed on the integration; eleven chose to join. A coalition that opted in built it faster than a team that was told to, and the briefing itself surfaced the hardest integration questions before the PRD was final.",
+          "Sixty engineers were briefed on the integration; eleven chose to join. The volunteers built faster than an assigned team would have, and the briefings surfaced the hardest integration questions before the PRD was final.",
       },
     ],
     measured: [
       {
-        value: "90 days",
+        value: "1 quarter",
         label: "Build-vs-partner decision",
-        source: "Vendor landscape in October 2025 to a selected partner and a phase-0 plan by early February 2026.",
+        source: "Vendor landscape in late October 2025 to a selected partner and a phase-0 plan by early February 2026 — about one quarter.",
       },
       {
         value: "9 mo vs 2.5–3 yr",
@@ -212,8 +212,8 @@ export const projects: Project[] = [
       },
     ],
     whatsNext: [
-      "GA was planned for November 2026. My role was impacted in NetApp's July 2026 layoff after the beta launch, so GA and the first adoption numbers belong to the team that followed — I report what I shipped, not what came after.",
-      "The free tier runs without enforcement. That was the right call to drive trial; the open question is at what point entitlement needs to be enforced rather than trusted.",
+      "GA was planned for November 2026. My role was impacted in NetApp's July 2026 layoff after the beta launch, so GA and the first adoption numbers belong to the team that followed.",
+      "The free tier was sized to drive trial rather than to police usage. The open question I left behind is when entitlement needs to be enforced rather than trusted — and I would now put that design on the readiness gate alongside pricing, support and legal.",
       "The partner's acquisition changes the long-term calculus. The Iceberg hedge makes a second engine possible; whether it is necessary is a decision for the next planning cycle.",
       "The AI-generated story workflow saved the team the ticket-writing grind, but I did not instrument the reject rate. Next time the measurement ships with the process.",
     ],
@@ -300,7 +300,7 @@ export const projects: Project[] = [
     ],
     whatsNext: [
       "The corpus is small — the pattern is proven, the scale is not.",
-      "Contradiction resolution across sources works in practice but has no test suite holding it honest.",
+      "Contradiction resolution across sources works in practice but has no test suite yet.",
       "Repo stays private because of what the wiki contains, so the engineering here has to be described rather than shown.",
     ],
     links: [{ label: "Repo", href: null, note: "private — the corpus names real people" }],
@@ -446,7 +446,7 @@ export const projects: Project[] = [
         value: "3",
         label: "Clients on one API — iOS, web, backend",
         source:
-          "Plus a fourth repository holding the Terraform that defines both environments. Infrastructure was code, not console clicks.",
+          "Plus a fourth repository holding the Terraform that defines both environments.",
       },
       {
         value: "~200",
@@ -463,7 +463,7 @@ export const projects: Project[] = [
     demo: {
       youtubeId: "5OZjUtUdbbI",
       caption:
-        "The product is voice — so watching it is the only honest way to judge it. A child asks, the story is generated and narrated, and the fork waits for an answer.",
+        "The product is voice. Watch it: a child asks, the story is generated and narrated, and the fork waits for an answer.",
       vertical: true,
     },
     links: [
