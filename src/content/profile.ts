@@ -8,20 +8,18 @@ export const profile = {
 
   /** The one-liner, from her own positioning work. */
   oneLiner:
-    "I build secure, grounded, production-ready AI products over complex enterprise data.",
+    "I build AI and data-infrastructure products for regulated industries — where someone eventually audits the answer.",
 
   /** Four facts, above the fold. Categorise, then believe. */
   proof: [
-    "Exabyte-scale object storage",
-    "Lakehouse: decision to beta in 9 months",
-    "2 granted US patents",
-    "Lacework: Kubernetes security, $12M→$20M",
-    "Panzura: air-gapped federal storage, $25M+",
-    "GenAI shipped to production",
+    "Exabyte-scale object storage — Forrester Wave Leader, Q2 2026",
+    "Lakehouse: strategy to beta in 10 months",
+    "Kubernetes security: $12M→$20M, 2 granted US patents",
+    "Air-gapped federal storage, $25M+",
   ],
 
   /** The thesis that organises everything below. */
-  thesisLine: "Every AI product is a data product wearing a different hat.",
+  thesisLine: "Every AI product is a data product first.",
 
   /** The stack — what was built at each layer, not what it taught me. */
   thesis: [
@@ -64,16 +62,16 @@ export const roles: Role[] = [
       "The Data Lakehouse, end to end — a company top-ten priority, reported up to the CEO's staff. Four engineering teams, 12+ functions, 30+ stakeholders.",
     points: [
       "Led 0→1 StorageGRID Data Lakehouse strategy: analytics built into the storage platform rather than deployed on top of it. The difference is the product — one install, one upgrade path, one support call, and the grid admin keeps full visibility instead of operating a second system alongside it. Addressable across an installed base of about 2,500 enterprise customers.",
-      "Drove the build-versus-partner decision and OEM selection in 90 days, compressing a multi-year build path to under one year.",
-      "De-risked the bet before it was built: validated with an internal customer running 6 PB, and secured two Fortune 10 banks as beta partners who stayed engaged from MVP onward.",
+      "Drove the build-versus-partner decision and OEM selection in one quarter, compressing a multi-year build path to under one year.",
+      "De-risked the bet before it was built: validated on a multi-petabyte internal deployment, and secured two of the largest US banks as early-access partners who stayed engaged from MVP onward.",
       "Built and defended the business case on a $500M product line, securing executive investment and alignment across 30+ stakeholders, 12+ functions and 4 engineering teams.",
-      "Pitched the integration to 60 engineers and came away with 11 committed to building it — a coalition recruited rather than assigned.",
+      "Briefed 60 engineers on the integration; 11 volunteered to build it.",
       "Owned licensing and packaging for the new tier, and built a support exposure model before launch so the organisation knew what the incremental caseload would cost it.",
       "Launched Branch Buckets in StorageGRID 12.0 — isolated AI/ML experimentation without duplicating the underlying object data. ~15% early adoption across workflows operating on 10+ PB.",
       "Selected Dremio as the OEM partner and took it through executive approval, engineering estimation and phase gating. Launched the beta in June 2026 — MVP to the internal AI team first, then early-access customers — with GA planned for November.",
       "It goes to market as Open Lakehouse on NetApp — a named breakout at NetApp INSIGHT 2026, September 29 to October 1.",
     ],
-    metric: { value: "90 days", label: "Build-vs-partner call that cut years off time-to-market" },
+    metric: { value: "10 months", label: "Strategy to beta launch, after a one-quarter build-vs-partner decision" },
   },
   {
     layer: "Consume",
@@ -85,7 +83,7 @@ export const roles: Role[] = [
     points: [
       "Launched a GenAI storytelling MVP in under 60 days, then scaled it into a production system: native SwiftUI iOS app, React web app, and a layered Python API on Google Cloud Run with dev and prod environments defined in Terraform.",
       "Designed the voice architecture twice. v1 orchestrated the loop itself — Universal-2 speech-to-text, Gemini, OpenAI text-to-speech over WebSockets. v2 replaced it with ElevenLabs conversational agents to cut turn latency, keeping v1 live because a shipped iOS app cannot be force-migrated.",
-      "Delivered COPPA and GDPR-compliant personalized learning through user milestones, feedback loops and token-optimized prompts.",
+      "Personalization ran on user milestones and token-capped prompts, designed to COPPA and GDPR-K requirements.",
       "Authenticated CI/CD with Workload Identity Federation rather than service-account keys — no long-lived deploy credential anywhere in the pipeline.",
     ],
     metric: { value: "~200", label: "Users at peak, from a 500-parent community" },
@@ -99,7 +97,7 @@ export const roles: Role[] = [
     link: { label: "US 12,563,060 — cloud compliance monitoring for container-orchestrated environments (USPTO)", href: "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12563060" },
     scope: "Kubernetes compliance, across three engineering teams — agent, platform, detection. Reported to a Principal PM, then a Director.",
     points: [
-      "Grew Kubernetes Security Posture Management from roughly $12M to $20M ARR across 200+ enterprise customers — CIS compliance, runtime visibility and node-level telemetry across EKS and GKE.",
+      "Owned the Kubernetes Security Posture Management roadmap while the line grew from roughly $12M to $20M ARR across 200+ enterprise customers — CIS compliance, runtime visibility and node-level telemetry across EKS and GKE.",
       "Launched Kubernetes Security Posture Management for Amazon EKS and Google GKE, securing 200+ enterprise environments to CIS Benchmark compliance.",
       "Turned CIS Benchmarks from prose into executable Rego/OPA policy, backed by three collector types — node-level DaemonSets, cluster-level via the Kubernetes API, and control-plane collectors — normalized through an agent that tagged KSPM data separately so it never disturbed existing CSPM customers.",
       "Integrated telemetry and audit logs into the Polygraph ML engine, enabling real-time behavioral drift detection and anomaly correlation.",
@@ -114,11 +112,11 @@ export const roles: Role[] = [
     title: "Product Manager → Senior Product Manager",
     dates: "Jun 2019 – Nov 2021",
     context: "Hybrid cloud storage for unstructured data across AWS, Azure and GCP. Two products: Panzura Filer, then Panzura Data Services.",
-    scope: "Panzura Filer, then Panzura Data Services after promotion. Two PMs reporting. Reported to the CPO throughout.",
+    scope: "Panzura Filer, then Panzura Data Services after promotion. Mentored two PMs. Reported to the CPO throughout.",
     points: [
       "Repositioned Panzura Filer across Azure, AWS and GCP — distributed file storage with lifecycle governance, driving 40%+ ARR growth.",
       "Built the Central Management System (CMS) for Panzura Data Services, on AWS identity management — centralised configuration and access across a fleet, cutting onboarding from 40+ manual steps by 87%.",
-      "Took the platform into GovCloud and air-gapped environments for the US intelligence community, validating satellite-based file transfer where normal connectivity could not be assumed. Unlocked $25M+ in federal business.",
+      "Took the platform into GovCloud and air-gapped federal environments, validating file transfer where normal connectivity could not be assumed. Unlocked $25M+ in federal business.",
       "Re-architected the hybrid cloud control plane for secure governance of petabyte-scale unstructured data in regulated industries.",
       "Launched data health dashboards giving CISOs visibility into file lifecycle and decommissioning — 30+ Fortune 500 customers within six months.",
       "Mentored 2 PMs to own roadmap delivery against go-to-market objectives.",
