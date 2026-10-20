@@ -58,6 +58,7 @@ export const roles: Role[] = [
     dates: "Aug 2025 – Jul 2026",
     context:
       "Named a Leader in The Forrester Wave™: Object Storage Solutions, Q2 2026, with above-average customer feedback. On-prem S3-compatible object storage at exabyte scale — a $500M product line powering data lakes, lakehouses and AI workloads.",
+    link: { label: "Forrester Wave: Object Storage Solutions, Q2 2026 (NetApp analyst reports)", href: "https://www.netapp.com/newsroom/analyst-reports/" },
     scope:
       "The Data Lakehouse, end to end — a company top-ten priority, reported up to the CEO's staff. Four engineering teams, 12+ functions, 30+ stakeholders.",
     points: [
@@ -94,6 +95,7 @@ export const roles: Role[] = [
     title: "Senior Technical Product Manager",
     dates: "Nov 2021 – Sep 2023",
     context: "Cloud-native AI/ML security for Kubernetes compliance and threat detection. The work behind two granted US patents.",
+    link: { label: "US 12,563,060 — cloud compliance monitoring for container-orchestrated environments (USPTO)", href: "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12563060" },
     scope: "Kubernetes compliance, across three engineering teams — agent, platform, detection. Reported to a Principal PM, then a Director.",
     points: [
       "Grew Kubernetes Security Posture Management from roughly $12M to $20M ARR across 200+ enterprise customers — CIS compliance, runtime visibility and node-level telemetry across EKS and GKE.",
