@@ -5,10 +5,10 @@ export type Project = {
   name: string
   tags: string[]
   year: string
-  status: "Live" | "Paused" | "Shipped, then paused" | "Active build" | "Prototype"
+  status: "Live" | "Paused" | "Shipped, then paused" | "Active build" | "Prototype" | "Shipped to beta" | "PRD"
   /** One plain sentence for the card. No jargon. */
   blurb: string
-  icon: "contract" | "story" | "brain" | "search"
+  icon: "contract" | "story" | "brain" | "search" | "layers" | "funnel"
   /** What it does, for a reader who knows nothing. */
   what: string
   /** The actual problem. */
@@ -127,122 +127,107 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "lulu",
-    name: "Lulu",
-    tags: ["Voice GenAI", "iOS · Web · GCP"],
-    year: "2024–25",
-    status: "Shipped, then paused",
-    icon: "story",
+    slug: "storagegrid-lakehouse",
+    name: "StorageGRID Data Lakehouse",
+    tags: ["Object storage", "Build vs partner", "NetApp"],
+    year: "2025–26",
+    status: "Shipped to beta",
+    icon: "layers",
     blurb:
-      "A new bedtime story every night, made up on the spot, told out loud, and the child decides what happens next. Shipped as a native iOS app, a web app and a backend on Cloud Run.",
+      "Analytics run directly on exabyte-scale object storage, so customers stop copying data out to query it. From a 90-day build-vs-partner decision to a beta launch in nine months.",
     what:
-      "A voice-first storytelling companion for young children. No screen. The child says what they want a story about, and the story is generated and narrated in real time, branching on what they say next, tuned to their age.",
+      "StorageGRID is NetApp's S3-compatible object store — the place large enterprises keep hundreds of petabytes. The lakehouse puts a query engine inside the grid so that data can be analysed where it sits: one install, one upgrade path, one support call, and the storage admin keeps full visibility instead of running a second system beside the first.",
     hard:
-      "The experience had to feel effortless while the backend orchestrated speech-to-text, LLM prompting, token management, safety filtering, fallback logic, personalization and text-to-speech in near real time. And the users were children — so safety mattered more than novelty, and latency was not an engineering metric but a product requirement. In a voice-first experience, a slow response breaks the spell.",
+      "Customers were copying data out to Databricks, Snowflake or a self-run Trino to analyse it — every copy costing money, time and a security review. Building an engine ourselves was a multi-year path. Partnering meant embedding someone else's software into a platform that does not run Kubernetes, and making it upgrade, recover, license and get supported like everything else on the grid. The product problem was not the query engine. It was making the engine disappear into the platform without the platform losing control of it.",
     how: [
-      "Three clients against one Python backend: a native SwiftUI iOS app, a React and TypeScript web app, and a shared API.",
-      "Backend layered as presentation, business and data — versioned routers with typed request and response schemas, and services split by domain: auth, session, chat, parent, avatar, story theme and storytelling.",
-      "v1 orchestrated the voice loop itself over a WebSocket — Universal-2 for speech-to-text, Gemini for generation, OpenAI for text-to-speech. v2 replaced that with ElevenLabs conversational agents: the backend issues a signed URL and receives HMAC-verified webhooks instead of brokering every turn.",
-      "MongoDB Atlas for session and profile state, Google Identity Platform for auth.",
-      "Story generation ran as a three-stage pipeline — start, continue, conclude — rather than one long generation, so a session could branch at each turn without regenerating what came before.",
-      "Deployed on Google Cloud Run behind Artifact Registry, with separate dev and production environments defined in Terraform and shipped by GitHub Actions.",
-      "Trust designed before intelligence — prompt constraints, content guardrails, token caps, retry logic and fallback paths.",
-      "Compliance designed in from the start: COPPA, GDPR-K, IEEE 7000 and UNICEF AI guidance.",
+      "A 90-day build-versus-partner evaluation run like an enterprise buyer would: Dremio, Starburst/Trino, Databricks and an internal build, benchmarked in a lab another team let us stand up. Internal came out at two and a half to three years; the partner path at about nine months.",
+      "The shared Apache Iceberg catalog is the compatibility contract. The engine is replaceable; the table format and catalog are not, so the decision stays reversible.",
+      "The engine inherits the grid's service lifecycle — install, operate, expand, decommission — plus rolling upgrades with pre-checks, node recovery and telemetry. It is never exposed as a raw configuration surface.",
+      "Two tiers with the same features. The free tier is one node's worth of query executors with no enforcement; the paid tier is a grid-wide memory entitlement that grows with the workload. Scale is the difference, never a feature cliff.",
+      "Supportable before sellable: a support exposure model sized the incremental caseload before launch, with first- and second-line in NetApp and third-line with the partner.",
+      "Stories, Day-0 and Day-1 docs and the first JIRA drafts were generated from the PRD with Claude and reviewed line by line by the engineers — the first project on the team to run that way end to end.",
     ],
     diagram: {
-      caption: "The voice loop, built twice. v1 owned every hop; v2 traded per-turn control for a faster turn.",
+      caption: "The engine lives inside the grid and inherits its lifecycle. The catalog is the contract that keeps the engine replaceable.",
       lanes: [
         {
-          label: "v1 — self-orchestrated",
-          steps: ["Child speaks", "WebSocket", "Universal-2 STT", "Gemini", "OpenAI TTS", "Child hears"],
-          note: "Total control of prompt, pacing and guardrails — and latency equal to the sum of three hops plus three inference calls.",
-        },
-        {
-          label: "v2 — conversational agent",
-          steps: ["Child speaks", "ElevenLabs agent", "Child hears"],
-          note: "The backend keeps what only it can do: auth, session state, story setup, and an HMAC-verified webhook recording what happened. v1 stayed live, because a shipped iOS app cannot be force-migrated.",
+          label: "Decision",
+          steps: ["Customer discovery", "4-way evaluation", "Lab benchmark", "Partner, not build", "Two exec approvals"],
+          note: "Rejected the internal build because the window was closing, not because it could not be done. The partner was acquired three days after approval; the decision was re-run as a one-way door and held.",
         },
         {
           label: "Platform",
-          steps: ["iOS (SwiftUI)", "Web (React)", "Python API", "Cloud Run", "MongoDB Atlas"],
-          note: "Dev and prod both defined in Terraform. CI/CD authenticates by Workload Identity Federation — no long-lived deploy credentials.",
+          steps: ["S3 object data", "Iceberg catalog", "Coordinator on admin node", "Stateless executors", "Grid lifecycle + telemetry"],
+          note: "No Kubernetes on the platform, so placement, eligibility and recovery were designed into the grid's own service model rather than borrowed.",
+        },
+        {
+          label: "Launch",
+          steps: ["Prototype (Mar)", "GTC demo", "Pricing + support gates", "Beta (Jun)", "GA (planned Nov)"],
+          note: "Beta went to the internal AI team first, then early-access customers. Goes to market as Open Lakehouse on NetApp, a named breakout at NetApp INSIGHT 2026.",
         },
       ],
     },
     decisions: [
       {
-        title: "Trust before intelligence",
+        title: "Partner, not build — and design for the partner leaving",
         body:
-          "With children as users, a more capable model that occasionally goes off-track is worse than a narrower one that never does. Guardrails, token caps and fallback paths came before any work on making the stories cleverer.",
+          "An internal engine would have taken years the market was not going to wait for. Partnering got to beta in nine months. The hedge was architectural: the Iceberg catalog, not the engine, is what customers depend on, so a different engine can be dropped in without migrating data. That hedge was tested early — the partner was acquired three days after executive approval — and the decision survived because the exit was already designed.",
       },
       {
-        title: "Latency treated as a product requirement",
+        title: "Same features in both tiers; scale is the only difference",
         body:
-          "Interaction flow was simplified and unnecessary turns removed, specifically to protect response time. Users preferred a fast reliable story over richer branching — tested, not assumed.",
+          "A free tier with missing features teaches customers that the product is crippled. A free tier that is simply small teaches them what the product does. One node's worth of executors, no enforcement, and a paid entitlement that grows with the grid — the upsell is the workload growing, not a feature being withheld.",
       },
       {
-        title: "Every constant in the system traces to child development research",
+        title: "Gate approvals on readiness, not on the demo",
         body:
-          "The numbers that govern a session are not round numbers somebody liked. A story uses 80% of a child's attention span rather than 100%, because learning degrades when cognitive load is maxed out and the remaining 20% absorbs distraction and thinking time. Interactions cap at 8, from Miller's 7±2 working-memory limit. Question complexity bands at 0.4 and 0.7 map to Piaget's stages — preoperational at 3–4 gets \"what colour is the bear?\", early concrete operational at 5–6 gets \"what do you think happens next?\", and 7–9 gets \"how would you help them solve this?\". Ten percent of every story is reserved for transitions and dramatic pauses, from conversation-flow research. Writing the reasoning down next to each constant is what let the system be tuned later against real usage instead of re-argued from scratch.",
+          "The prototype demoed well in March. The second executive approval was gated on things a demo cannot show: pricing accepted, support model agreed, legal done, engineers assigned. Both approvals came through, and the project went to beta with the support organisation already knowing what the caseload would cost it.",
       },
       {
-        title: "v2 gave up control of the voice loop to buy latency",
+        title: "Recruit the engineers, do not assign them",
         body:
-          "v1 orchestrated everything — speech to text, generation, text to speech — over a WebSocket. That meant total control of the prompt, the pacing and the guardrails, and it also meant latency was the sum of three network hops plus three inference calls. In a voice product where a pause breaks the spell, that sum was the product. v2 handed the loop to a purpose-built conversational agent and kept the backend for what only it could do: auth, session state, story setup and the webhook that records what happened. Less control over each turn, a faster turn. For children who will not wait, that was the right trade — and v1 stayed running, because an App Store release cannot be force-migrated.",
-      },
-      {
-        title: "CI/CD authenticated with Workload Identity Federation, not service-account keys",
-        body:
-          "GitHub Actions deploys to Google Cloud without a long-lived credential stored anywhere in the repo — the pipeline federates its identity and receives short-lived tokens instead. For a children\u2019s product holding profile data, a leaked deploy key is the kind of mistake you only get to make once. It cost an afternoon of setup and removed an entire class of breach.",
-      },
-      {
-        title: "A story's token budget is split 15 / 70 / 15",
-        body:
-          "Intro gets 15% of the budget, the middle 70%, the conclusion 15%. Without a split, a model given a token cap spends it early and then rushes or truncates the ending — and for a bedtime story the ending is the entire point. Budgeting the arc up front makes pacing a product decision rather than a side effect of where the cap happens to land. It also makes cost per story predictable, which is what a consumer AI product lives or dies on.",
-      },
-      {
-        title: "The AI stays invisible",
-        body:
-          "Parents cared about safety and ease; children cared about voice and delight. Neither wanted to configure a model. Personalization happens through prompt constraints and pacing in the background, never through settings.",
+          "Sixty engineers were briefed on the integration; eleven chose to join. A coalition that opted in built it faster than a team that was told to, and the briefing itself surfaced the hardest integration questions before the PRD was final.",
       },
     ],
     measured: [
       {
-        value: "100%",
-        label: "Retention of early adopters",
-        source: "Product-led growth, no paid acquisition.",
+        value: "90 days",
+        label: "Build-vs-partner decision",
+        source: "Vendor landscape in October 2025 to a selected partner and a phase-0 plan by early February 2026.",
       },
       {
-        value: "<60 days",
-        label: "Concept to launched MVP",
-        source: "Built with a single engineer.",
+        value: "9 mo vs 2.5–3 yr",
+        label: "Partner path vs internal build",
+        source: "Engineering estimates for each path, produced during the evaluation. The partner path is what shipped.",
       },
       {
-        value: "3",
-        label: "Clients on one API — iOS, web, backend",
-        source:
-          "Plus a fourth repository holding the Terraform that defines both environments. Infrastructure was code, not console clicks.",
+        value: "60 → 11",
+        label: "Engineers briefed → engineers who joined",
+        source: "Voluntary staffing across four engineering teams and 12+ functions, with 30+ stakeholders aligned.",
       },
       {
-        value: "~300",
-        label: "Users at peak",
-        source: "Reached while the product ran in production.",
+        value: "2",
+        label: "Early-access customers on the beta",
+        source: "Beta launched June 2026 to the internal AI team first, then two early-access customers. Availability at GA is the full installed base of about 2,500; adoption numbers are the next team's to report.",
       },
     ],
     whatsNext: [
-      "Production-grade and paused, not abandoned. It ran on Cloud Run across dev and prod with real users, but per-story inference outran what the product could recover — roughly $100/month at pilot scale against no revenue — and the team was small enough that continuity rested on very few people.",
-      "That is the real lesson, and it is a product lesson rather than a technical one: shipping an MVP is not the same as building something maintainable, measurable and independently operable.",
-      "A restart depends on unit economics, not engineering. The cost model exists; per-story inference has to clear its own bar before this goes live again.",
-      "The PRD set an evaluation framework — relevance, age-fit, interactivity, toxicity, quarterly bias audits, fallback logging — with targets of NPS above 40 and hallucination under 5%. Those were the bar, not a measured result. Designing the framework is not the same as running it.",
+      "GA was planned for November 2026. My role was impacted in NetApp's July 2026 layoff after the beta launch, so GA and the first adoption numbers belong to the team that followed — I report what I shipped, not what came after.",
+      "The free tier runs without enforcement. That was the right call to drive trial; the open question is at what point entitlement needs to be enforced rather than trusted.",
+      "The partner's acquisition changes the long-term calculus. The Iceberg hedge makes a second engine possible; whether it is necessary is a decision for the next planning cycle.",
+      "The AI-generated story workflow saved the team the ticket-writing grind, but I did not instrument the reject rate. Next time the measurement ships with the process.",
     ],
-    demo: {
-      youtubeId: "5OZjUtUdbbI",
-      caption:
-        "The product is voice — so watching it is the only honest way to judge it. A child asks, the story is generated and narrated, and the fork waits for an answer.",
-      vertical: true,
-    },
     links: [
-      { label: "Repos", href: null, note: "private — backend, iOS, web and infrastructure" },
+      {
+        label: "NetApp INSIGHT 2026 — Open Lakehouse on NetApp",
+        href: null,
+        note: "public breakout, Sept 29 – Oct 1, 2026",
+      },
+      {
+        label: "PRDs, pricing model, support exposure model",
+        href: null,
+        note: "NetApp confidential — described here, not shown",
+      },
     ],
   },
   {
@@ -370,6 +355,195 @@ export const projects: Project[] = [
         note: "built under NDA for a partner program — running, not publicly viewable",
       },
     ],
+  },
+  {
+    slug: "lulu",
+    name: "Lulu",
+    tags: ["Voice GenAI", "iOS · Web · GCP"],
+    year: "2024–25",
+    status: "Shipped, then paused",
+    icon: "story",
+    blurb:
+      "A new bedtime story every night, made up on the spot, told out loud, and the child decides what happens next. Shipped as a native iOS app, a web app and a backend on Cloud Run.",
+    what:
+      "A voice-first storytelling companion for young children. No screen. The child says what they want a story about, and the story is generated and narrated in real time, branching on what they say next, tuned to their age.",
+    hard:
+      "The experience had to feel effortless while the backend orchestrated speech-to-text, LLM prompting, token management, safety filtering, fallback logic, personalization and text-to-speech in near real time. And the users were children — so safety mattered more than novelty, and latency was not an engineering metric but a product requirement. In a voice-first experience, a slow response breaks the spell.",
+    how: [
+      "Three clients against one Python backend: a native SwiftUI iOS app, a React and TypeScript web app, and a shared API.",
+      "Backend layered as presentation, business and data — versioned routers with typed request and response schemas, and services split by domain: auth, session, chat, parent, avatar, story theme and storytelling.",
+      "v1 orchestrated the voice loop itself over a WebSocket — Universal-2 for speech-to-text, Gemini for generation, OpenAI for text-to-speech. v2 replaced that with ElevenLabs conversational agents: the backend issues a signed URL and receives HMAC-verified webhooks instead of brokering every turn.",
+      "MongoDB Atlas for session and profile state, Google Identity Platform for auth.",
+      "Story generation ran as a three-stage pipeline — start, continue, conclude — rather than one long generation, so a session could branch at each turn without regenerating what came before.",
+      "Deployed on Google Cloud Run behind Artifact Registry, with separate dev and production environments defined in Terraform and shipped by GitHub Actions.",
+      "Trust designed before intelligence — prompt constraints, content guardrails, token caps, retry logic and fallback paths.",
+      "Compliance designed in from the start: COPPA, GDPR-K, IEEE 7000 and UNICEF AI guidance.",
+    ],
+    diagram: {
+      caption: "The voice loop, built twice. v1 owned every hop; v2 traded per-turn control for a faster turn.",
+      lanes: [
+        {
+          label: "v1 — self-orchestrated",
+          steps: ["Child speaks", "WebSocket", "Universal-2 STT", "Gemini", "OpenAI TTS", "Child hears"],
+          note: "Total control of prompt, pacing and guardrails — and latency equal to the sum of three hops plus three inference calls.",
+        },
+        {
+          label: "v2 — conversational agent",
+          steps: ["Child speaks", "ElevenLabs agent", "Child hears"],
+          note: "The backend keeps what only it can do: auth, session state, story setup, and an HMAC-verified webhook recording what happened. v1 stayed live, because a shipped iOS app cannot be force-migrated.",
+        },
+        {
+          label: "Platform",
+          steps: ["iOS (SwiftUI)", "Web (React)", "Python API", "Cloud Run", "MongoDB Atlas"],
+          note: "Dev and prod both defined in Terraform. CI/CD authenticates by Workload Identity Federation — no long-lived deploy credentials.",
+        },
+      ],
+    },
+    decisions: [
+      {
+        title: "Trust before intelligence",
+        body:
+          "With children as users, a more capable model that occasionally goes off-track is worse than a narrower one that never does. Guardrails, token caps and fallback paths came before any work on making the stories cleverer.",
+      },
+      {
+        title: "Latency treated as a product requirement",
+        body:
+          "Interaction flow was simplified and unnecessary turns removed, specifically to protect response time. Users preferred a fast reliable story over richer branching — tested, not assumed.",
+      },
+      {
+        title: "Every constant in the system traces to child development research",
+        body:
+          "The numbers that govern a session are not round numbers somebody liked. A story uses 80% of a child's attention span rather than 100%, because learning degrades when cognitive load is maxed out and the remaining 20% absorbs distraction and thinking time. Interactions cap at 8, from Miller's 7±2 working-memory limit. Question complexity bands at 0.4 and 0.7 map to Piaget's stages — preoperational at 3–4 gets \"what colour is the bear?\", early concrete operational at 5–6 gets \"what do you think happens next?\", and 7–9 gets \"how would you help them solve this?\". Ten percent of every story is reserved for transitions and dramatic pauses, from conversation-flow research. Writing the reasoning down next to each constant is what let the system be tuned later against real usage instead of re-argued from scratch.",
+      },
+      {
+        title: "v2 gave up control of the voice loop to buy latency",
+        body:
+          "v1 orchestrated everything — speech to text, generation, text to speech — over a WebSocket. That meant total control of the prompt, the pacing and the guardrails, and it also meant latency was the sum of three network hops plus three inference calls. In a voice product where a pause breaks the spell, that sum was the product. v2 handed the loop to a purpose-built conversational agent and kept the backend for what only it could do: auth, session state, story setup and the webhook that records what happened. Less control over each turn, a faster turn. For children who will not wait, that was the right trade — and v1 stayed running, because an App Store release cannot be force-migrated.",
+      },
+      {
+        title: "CI/CD authenticated with Workload Identity Federation, not service-account keys",
+        body:
+          "GitHub Actions deploys to Google Cloud without a long-lived credential stored anywhere in the repo — the pipeline federates its identity and receives short-lived tokens instead. For a children\u2019s product holding profile data, a leaked deploy key is the kind of mistake you only get to make once. It cost an afternoon of setup and removed an entire class of breach.",
+      },
+      {
+        title: "A story's token budget is split 15 / 70 / 15",
+        body:
+          "Intro gets 15% of the budget, the middle 70%, the conclusion 15%. Without a split, a model given a token cap spends it early and then rushes or truncates the ending — and for a bedtime story the ending is the entire point. Budgeting the arc up front makes pacing a product decision rather than a side effect of where the cap happens to land. It also makes cost per story predictable, which is what a consumer AI product lives or dies on.",
+      },
+      {
+        title: "The AI stays invisible",
+        body:
+          "Parents cared about safety and ease; children cared about voice and delight. Neither wanted to configure a model. Personalization happens through prompt constraints and pacing in the background, never through settings.",
+      },
+    ],
+    measured: [
+      {
+        value: "<60 days",
+        label: "Concept to launched MVP",
+        source: "Built with a single engineer.",
+      },
+      {
+        value: "3",
+        label: "Clients on one API — iOS, web, backend",
+        source:
+          "Plus a fourth repository holding the Terraform that defines both environments. Infrastructure was code, not console clicks.",
+      },
+      {
+        value: "~200",
+        label: "Users at peak",
+        source: "From a 500-parent community, product-led, no paid acquisition. Reached while the product ran in production.",
+      },
+    ],
+    whatsNext: [
+      "Production-grade and paused, not abandoned. It ran on Cloud Run across dev and prod with real users, but per-story inference outran what the product could recover — roughly $100/month at pilot scale against no revenue — and the team was small enough that continuity rested on very few people.",
+      "That is the real lesson, and it is a product lesson rather than a technical one: shipping an MVP is not the same as building something maintainable, measurable and independently operable.",
+      "A restart depends on unit economics, not engineering. The cost model exists; per-story inference has to clear its own bar before this goes live again.",
+      "The PRD set an evaluation framework — relevance, age-fit, interactivity, toxicity, quarterly bias audits, fallback logging — with targets of NPS above 40 and hallucination under 5%. Those were the bar, not a measured result. Designing the framework is not the same as running it.",
+    ],
+    demo: {
+      youtubeId: "5OZjUtUdbbI",
+      caption:
+        "The product is voice — so watching it is the only honest way to judge it. A child asks, the story is generated and narrated, and the fork waits for an answer.",
+      vertical: true,
+    },
+    links: [
+      { label: "Repos", href: null, note: "private — backend, iOS, web and infrastructure" },
+    ],
+  },
+  {
+    slug: "leadpilot",
+    name: "LeadPilot AI",
+    tags: ["Agentic PRD", "Lead qualification"],
+    year: "2026",
+    status: "PRD",
+    icon: "funnel",
+    blurb:
+      "A design, not a build: an agent that answers a prospect's product questions, works out what they want, qualifies them, and hands them to sales with context instead of a form fill.",
+    what:
+      "LeadPilot sits on a company's website or behind a campaign link. It answers questions from approved product knowledge, captures intent from the conversation and site activity, asks the qualification questions the company defines, decides whether the prospect qualifies, and routes qualified leads to the right rep with the whole conversation summarised. Returning prospects are recognised and the previous context is reused.",
+    hard:
+      "The easy version of this product is a chatbot with a lead form on the end. The hard call was where not to use the model. Qualification and routing are business logic a sales team has to trust and audit; understanding a prospect who phrases things twenty different ways is not. Drawing that line component by component — rather than putting an LLM everywhere — was the product work.",
+    how: [
+      "The workflow was broken into eleven components, from identifying the prospect to storing their context, and each was put through the same review: is ML necessary here, is there data to train on, does it scale, what does the law say, where does bias creep in, can the output be explained.",
+      "Hybrid by design: the LLM owns understanding, retrieval over company knowledge, conversation and insight generation; deterministic rules own identity matching, qualification scoring, routing and handoff.",
+      "Three user flows — website, campaign link, returning prospect — and eight functional areas including prospect memory and the SDR-facing handoff packet.",
+      "Written with a cohort partner during Maven's Agentic AI PM course; the problem choice and the design decisions are ours.",
+    ],
+    diagram: {
+      caption: "Eleven components, one question each: does this step need a model, or does it need a rule?",
+      lanes: [
+        {
+          label: "Model owns",
+          steps: ["Understand intent", "Retrieve knowledge", "Answer", "Ask qualifying questions", "Generate insights"],
+          note: "Prospects phrase the same need many ways; a rule-based flow breaks on the first unexpected sentence.",
+        },
+        {
+          label: "Rules own",
+          steps: ["Identify prospect", "Evaluate qualification", "Route / hand off", "Store context"],
+          note: "A wrong answer from the model is a bad chat. A wrong answer from routing is a lost deal — so those steps are deterministic and auditable.",
+        },
+      ],
+    },
+    decisions: [
+      {
+        title: "Four of eleven components do not use ML at all",
+        body:
+          "Identifying a returning prospect, evaluating qualification against the company's criteria, routing to a rep and storing context are all deterministic. Putting a model in those paths adds cost and a failure mode without adding capability. The per-component review made that visible before anything was built.",
+      },
+      {
+        title: "The North Star is the next action, not the lead count",
+        body:
+          "Leads captured is a vanity metric for a product like this — a chatbot can capture a thousand unqualified ones. The North Star is the share of qualified prospects for whom the agent recommends or initiates the right next action, with qualification accuracy against human judgment as the guardrail.",
+      },
+      {
+        title: "Prospect memory is a feature and a privacy obligation",
+        body:
+          "Recognising a returning prospect makes the second conversation better. It also means storing personal data, so consent and identity-confidence thresholds were specified alongside the feature rather than after it.",
+      },
+    ],
+    measured: [
+      {
+        value: "11",
+        label: "Workflow components reviewed",
+        source: "Each assessed for ML necessity, training data, scale, legal constraints, bias and explainability.",
+      },
+      {
+        value: "4",
+        label: "Components kept deterministic",
+        source: "Identify prospect, evaluate qualification, route and hand off, store context.",
+      },
+      {
+        value: "5 + 9",
+        label: "Primary and secondary metrics defined",
+        source: "Primary: qualification rate, qualification accuracy, qualified-lead conversion, information resolution rate, sales-insight accuracy. All targets, not results — nothing has been measured because nothing has been built.",
+      },
+    ],
+    whatsNext: [
+      "This is a PRD. The next step is the build — workflow version first, then the agent version — and a comparison on success rate, cost and time per task, because the honest answer to whether the agent is worth it has to be a number.",
+      "The qualification rules are the company's, not the model's. The product will only be as good as the criteria a sales team is willing to write down.",
+      "Hybrid designs have a seam, and the seam is where failures hide: when the model's understanding and the rules' decision disagree, someone has to see it. That observability is specified, not built.",
+    ],
+    links: [{ label: "PRD", href: null, note: "available on request" }],
   },
 ]
 
