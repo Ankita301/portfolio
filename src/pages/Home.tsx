@@ -273,7 +273,7 @@ export default function Home() {
         <div className="wrap">
           <Eyebrow>AI products I've built</Eyebrow>
           <h2 className="display" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', margin: '16px 0 34px' }}>
-            Four products, four different problems
+            Six pieces of work, six different problems
           </h2>
 
           <div
