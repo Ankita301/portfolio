@@ -6,6 +6,7 @@ import Layout from './components/Layout'
 import Home from './pages/Home'
 import ProjectPage from './pages/ProjectPage'
 import About from './pages/About'
+import EssayPage from './pages/EssayPage'
 
 // Matches Vite's base so project-site paths (/portfolio/...) resolve.
 const basename = import.meta.env.BASE_URL.replace(/\/$/, '')
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
       { path: '/', element: <Home /> },
       { path: '/projects/:slug', element: <ProjectPage /> },
       { path: '/about', element: <About /> },
+      { path: '/writing/:slug', element: <EssayPage /> },
       { path: '*', element: <Home /> },
     ],
   },
