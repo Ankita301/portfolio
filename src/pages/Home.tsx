@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { profile, roles } from '../content/profile'
 import { projects } from '../content/projects'
+import { essays } from '../content/writing'
 import Icon from '../components/Icon'
 import { useReveal } from '../components/useReveal'
 
@@ -40,9 +41,15 @@ function Hero() {
             color: 'var(--text)',
           }}
         >
-          I build secure, grounded, production-ready AI products over{' '}
-          <span style={{ color: 'var(--accent)' }}>complex enterprise data</span>.
+          I build AI and data-infrastructure products for regulated industries{' '}
+          <span style={{ color: 'var(--accent)' }}>— where someone eventually audits the answer</span>.
         </p>
+
+        <div className="mono" style={{ color: 'var(--muted)', marginTop: 18, lineHeight: 1.8 }}>
+          {profile.status} ·{' '}
+          <a href={profile.linkedin} style={{ color: 'var(--accent)' }}>LinkedIn</a> ·{' '}
+          <a href={`mailto:${profile.email}`} style={{ color: 'var(--accent)' }}>Email</a>
+        </div>
 
         {/* Four facts, before any story. A reader decides here. */}
         <div className="proof-row" style={{ marginTop: 'clamp(30px, 5vw, 46px)' }}>
@@ -152,6 +159,42 @@ function ProjectCard({ p, i }: { p: (typeof projects)[number]; i: number }) {
   )
 }
 
+function Writing() {
+  return (
+    <section style={{ paddingBlock: 'clamp(40px, 6vw, 70px)' }}>
+      <div className="wrap">
+        <Eyebrow>Writing</Eyebrow>
+        <h2 className="display" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', margin: '16px 0 26px' }}>
+          How I think about the work
+        </h2>
+        <div style={{ borderTop: '1px solid var(--line)', maxWidth: 820 }}>
+          {essays.map((e, i) => (
+            <Link
+              key={e.slug}
+              to={`/writing/${e.slug}`}
+              className="reveal"
+              style={{
+                display: 'block',
+                padding: '22px 0',
+                borderBottom: '1px solid var(--line)',
+                transitionDelay: `${i * 60}ms`,
+              }}
+            >
+              <div className="mono" style={{ color: 'var(--accent)' }}>
+                {e.kind} · {e.date} · {e.readTime}
+              </div>
+              <div className="display" style={{ fontSize: '1.3rem', fontWeight: 600, marginTop: 8 }}>
+                {e.title}
+              </div>
+              <p style={{ color: 'var(--muted)', margin: '8px 0 0', fontSize: '0.96rem', maxWidth: '64ch' }}>{e.dek}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function WorkStack() {
   return (
     <section style={{ paddingBlock: 'clamp(48px, 8vw, 90px)' }}>
@@ -247,6 +290,35 @@ function WorkStack() {
                     </span>
                   </div>
                 )}
+
+                {r.diagram && (
+                  <div style={{ marginTop: 22 }}>
+                    <div className="mono" style={{ color: 'var(--accent)', marginBottom: 10 }}>
+                      The system
+                    </div>
+                    {r.diagram.caption && (
+                      <p style={{ color: 'var(--muted)', fontSize: '0.92rem', marginTop: 0, marginBottom: 14 }}>
+                        {r.diagram.caption}
+                      </p>
+                    )}
+                    <div className="flow">
+                      {r.diagram.lanes.map((lane) => (
+                        <div className="flow-lane" key={lane.label ?? lane.steps[0]}>
+                          {lane.label && <div className="flow-lane-label">{lane.label}</div>}
+                          <div className="flow-steps">
+                            {lane.steps.map((step, si) => (
+                              <div className="flow-pair" key={step}>
+                                {si > 0 && <span className="flow-arrow" aria-hidden>→</span>}
+                                <div className="flow-step">{step}</div>
+                              </div>
+                            ))}
+                          </div>
+                          {lane.note && <p className="flow-note">{lane.note}</p>}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -286,6 +358,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Writing />
 
       <WorkStack />
     </>
