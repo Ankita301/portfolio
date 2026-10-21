@@ -57,7 +57,7 @@ export const roles: Role[] = [
     dates: "Aug 2025 – Jul 2026",
     context:
       "Named a Leader in The Forrester Wave™: Object Storage Solutions, Q2 2026, with above-average customer feedback. On-prem S3-compatible object storage at exabyte scale — a $500M product line powering data lakes, lakehouses and AI workloads.",
-    link: { label: "Forrester Wave: Object Storage Solutions, Q2 2026 (NetApp analyst reports)", href: "https://www.netapp.com/newsroom/analyst-reports/" },
+    link: { label: "StorageGRID 12.0 release notes — Branch buckets, AssumeRole, S3 caching for AI/ML", href: "https://docs.netapp.com/us-en/storagegrid-120/release-notes/whats-new.html" },
     scope:
       "The Data Lakehouse, end to end — a company top-ten priority, reported up to the CEO's staff. Four engineering teams, 12+ functions, 30+ stakeholders.",
     points: [
@@ -67,8 +67,8 @@ export const roles: Role[] = [
       "Built and defended the business case on a $500M product line, securing executive investment and alignment across 30+ stakeholders, 12+ functions and 4 engineering teams.",
       "Briefed 60 engineers on the integration; 11 volunteered to build it.",
       "Owned licensing and packaging for the new tier, and built a support exposure model before launch so the organisation knew what the incremental caseload would cost it.",
-      "Launched Branch Buckets in StorageGRID 12.0 — isolated AI/ML experimentation without duplicating the underlying object data. ~15% early adoption across workflows operating on 10+ PB.",
-      "Selected Dremio as the OEM partner and took it through executive approval, engineering estimation and phase gating. Launched the beta in June 2026 — MVP to the internal AI team first, then early-access customers — with GA planned for November.",
+      "Launched Branch Buckets in StorageGRID 12.0 — point-in-time branches of a bucket for isolated AI/ML experimentation and faster ransomware recovery, without duplicating the underlying object data.",
+      "Selected the OEM partner — an Iceberg-native query engine — and took it through executive approval, engineering estimation and phase gating. Launched the beta in June 2026 — MVP to the internal AI team first, then early-access customers — with GA planned for November.",
       "It goes to market as Open Lakehouse on NetApp — a named breakout at NetApp INSIGHT 2026, September 29 to October 1.",
     ],
     metric: { value: "10 months", label: "Strategy to beta launch, after a one-quarter build-vs-partner decision" },
