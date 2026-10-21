@@ -415,29 +415,14 @@ export const projects: Project[] = [
           "With children as users, a more capable model that occasionally goes off-track is worse than a narrower one that never does. Guardrails, token caps and fallback paths came before any work on making the stories cleverer.",
       },
       {
-        title: "Latency treated as a product requirement",
-        body:
-          "Interaction flow was simplified and unnecessary turns removed, specifically to protect response time. Users preferred a fast reliable story over richer branching — tested, not assumed.",
-      },
-      {
         title: "Every constant in the system traces to child development research",
         body:
-          "The numbers that govern a session are not round numbers somebody liked. A story uses 80% of a child's attention span rather than 100%, because learning degrades when cognitive load is maxed out and the remaining 20% absorbs distraction and thinking time. Interactions cap at 8, from Miller's 7±2 working-memory limit. Question complexity bands at 0.4 and 0.7 map to Piaget's stages — preoperational at 3–4 gets \"what colour is the bear?\", early concrete operational at 5–6 gets \"what do you think happens next?\", and 7–9 gets \"how would you help them solve this?\". Ten percent of every story is reserved for transitions and dramatic pauses, from conversation-flow research. Writing the reasoning down next to each constant is what let the system be tuned later against real usage instead of re-argued from scratch.",
+          "The numbers that govern a session are not round numbers somebody liked. A story uses 80% of a child's attention span rather than 100%, because learning degrades when cognitive load is maxed out and the remaining 20% absorbs distraction and thinking time. Interactions cap at 8, from Miller's 7±2 working-memory limit. Question complexity bands at 0.4 and 0.7 map to Piaget's stages — preoperational at 3–4 gets \"what colour is the bear?\", early concrete operational at 5–6 gets \"what do you think happens next?\", and 7–9 gets \"how would you help them solve this?\". Ten percent of every story is reserved for transitions and dramatic pauses, from conversation-flow research. The token budget for a story is split 15 / 70 / 15 across intro, middle and ending, because a model given a flat cap spends it early and rushes the ending — and for a bedtime story the ending is the point. Writing the reasoning down next to each constant is what let the system be tuned later against real usage instead of re-argued from scratch.",
       },
       {
         title: "v2 gave up control of the voice loop to buy latency",
         body:
-          "v1 orchestrated everything — speech to text, generation, text to speech — over a WebSocket. That meant total control of the prompt, the pacing and the guardrails, and it also meant latency was the sum of three network hops plus three inference calls. In a voice product where a pause breaks the spell, that sum was the product. v2 handed the loop to a purpose-built conversational agent and kept the backend for what only it could do: auth, session state, story setup and the webhook that records what happened. Less control over each turn, a faster turn. For children who will not wait, that was the right trade — and v1 stayed running, because an App Store release cannot be force-migrated.",
-      },
-      {
-        title: "CI/CD authenticated with Workload Identity Federation, not service-account keys",
-        body:
-          "GitHub Actions deploys to Google Cloud without a long-lived credential stored anywhere in the repo — the pipeline federates its identity and receives short-lived tokens instead. For a children\u2019s product holding profile data, a leaked deploy key is the kind of mistake you only get to make once. It cost an afternoon of setup and removed an entire class of breach.",
-      },
-      {
-        title: "A story's token budget is split 15 / 70 / 15",
-        body:
-          "Intro gets 15% of the budget, the middle 70%, the conclusion 15%. Without a split, a model given a token cap spends it early and then rushes or truncates the ending — and for a bedtime story the ending is the entire point. Budgeting the arc up front makes pacing a product decision rather than a side effect of where the cap happens to land. It also makes cost per story predictable, which is what a consumer AI product lives or dies on.",
+          "Latency was a product requirement, not an engineering metric: in testing, users chose a fast, reliable story over richer branching. v1 orchestrated everything — speech to text, generation, text to speech — over a WebSocket. That meant total control of the prompt, the pacing and the guardrails, and it also meant latency was the sum of three network hops plus three inference calls. In a voice product where a pause breaks the spell, that sum was the product. v2 handed the loop to a purpose-built conversational agent and kept the backend for what only it could do: auth, session state, story setup and the webhook that records what happened. Less control over each turn, a faster turn. For children who will not wait, that was the right trade — and v1 stayed running, because an App Store release cannot be force-migrated.",
       },
       {
         title: "The AI stays invisible",
