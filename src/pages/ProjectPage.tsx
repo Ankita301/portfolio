@@ -184,6 +184,19 @@ export default function ProjectPage() {
         <p style={{ color: 'var(--muted)', fontSize: '1.02rem' }}>{p.hard}</p>
       </Section>
 
+      <Section label="Decisions">
+        <div style={{ display: 'grid', gap: 26 }}>
+          {p.decisions.map((d) => (
+            <div key={d.title}>
+              <h3 className="display" style={{ fontSize: '1.12rem', fontWeight: 600, margin: '0 0 7px' }}>
+                {d.title}
+              </h3>
+              <p style={{ color: 'var(--muted)', margin: 0 }}>{d.body}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       <Section label="How it works">
         <ul style={{ margin: 0, paddingLeft: 0, listStyle: 'none', display: 'grid', gap: 12 }}>
           {p.how.map((h) => (
@@ -219,19 +232,6 @@ export default function ProjectPage() {
         </Section>
       )}
 
-      <Section label="Decisions">
-        <div style={{ display: 'grid', gap: 26 }}>
-          {p.decisions.map((d) => (
-            <div key={d.title}>
-              <h3 className="display" style={{ fontSize: '1.12rem', fontWeight: 600, margin: '0 0 7px' }}>
-                {d.title}
-              </h3>
-              <p style={{ color: 'var(--muted)', margin: 0 }}>{d.body}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
       {/* Structural, never optional. */}
       <Section label="What I measured">
         <div
@@ -261,7 +261,7 @@ export default function ProjectPage() {
       </Section>
 
       {/* The differentiator. Every project has one. */}
-      <Section label="What's next" title="Where it goes next — limits included">
+      <Section label="Limits" title="Where it goes next — limits included">
         <ul style={{ margin: 0, paddingLeft: 0, listStyle: 'none', display: 'grid', gap: 14 }}>
           {p.whatsNext.map((g) => (
             <li key={g} style={{ display: 'flex', gap: 12, color: 'var(--muted)' }}>
