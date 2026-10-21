@@ -6,6 +6,9 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/abhargava-pm",
   github: "https://github.com/Ankita301",
 
+  /** Status line under the one-liner. Plain, for the 40-second reader. */
+  status: "Open to Staff / Principal roles in AI infrastructure and data platforms · SF Bay Area · available now",
+
   /** The one-liner, from her own positioning work. */
   oneLiner:
     "I build AI and data-infrastructure products for regulated industries — where someone eventually audits the answer.",
@@ -46,6 +49,11 @@ export type Role = {
   link?: { label: string; href: string }
   points: string[]
   metric?: { value: string; label: string }
+  /** The system, drawn. Same lanes as the project pages. */
+  diagram?: {
+    caption?: string
+    lanes: { label?: string; steps: string[]; note?: string }[]
+  }
 }
 
 /** Ordered top-down for reading; rendered bottom-up as a stack. */
@@ -72,6 +80,21 @@ export const roles: Role[] = [
       "It goes to market as Open Lakehouse on NetApp — a named breakout at NetApp INSIGHT 2026, September 29 to October 1.",
     ],
     metric: { value: "10 months", label: "Strategy to beta launch, after a one-quarter build-vs-partner decision" },
+    diagram: {
+      caption: "Two things shipped on the same grid: a query engine that inherits the platform's lifecycle, and branches that let AI/ML teams experiment on object data without copying it.",
+      lanes: [
+        {
+          label: "Lakehouse",
+          steps: ["S3 object data", "Iceberg catalog", "Embedded query engine", "Grid lifecycle, upgrades, telemetry", "Beta (Jun 2026)"],
+          note: "The catalog is the compatibility contract; the engine is replaceable. The platform runs no Kubernetes, so placement and recovery live in the grid's own service model.",
+        },
+        {
+          label: "Branch Buckets (12.0)",
+          steps: ["Parent bucket", "Point-in-time branch", "Isolated AI/ML writes", "Policy on the parent", "Faster ransomware recovery"],
+          note: "A branch is a version of the bucket, not a copy of its objects. AssumeRole issues short-term credentials for scoped access.",
+        },
+      ],
+    },
   },
   {
     layer: "Consume",
@@ -105,6 +128,21 @@ export const roles: Role[] = [
       "Named inventor on two granted US patents from this work — US 12,563,060, cloud compliance monitoring for container-orchestrated environments, and US 12,425,428, activity monitoring from container orchestration data. Both granted after I left, assigned to Fortinet. Lacework's Inventor Award followed the filings.",
     ],
     metric: { value: "$12M→$20M", label: "KSPM ARR growth" },
+    diagram: {
+      caption: "Compliance as executable policy, and audit telemetry as a signal for the ML engine — on the same agent, without disturbing existing CSPM customers.",
+      lanes: [
+        {
+          label: "Posture",
+          steps: ["Node DaemonSet · cluster API · control-plane collectors", "Normalizing agent (KSPM-tagged)", "CIS Benchmarks as OPA/Rego", "Findings across EKS + GKE"],
+          note: "Three collector types feed one agent; KSPM data is tagged separately so CSPM customers never saw a change in their own results.",
+        },
+        {
+          label: "Behaviour",
+          steps: ["Kubernetes audit logs", "Identity context", "Polygraph ML", "Anomaly + drift detection"],
+          note: "API activity, privilege misuse and identity changes become behavioural signal rather than a log to grep. Two granted US patents came from this design.",
+        },
+      ],
+    },
   },
   {
     layer: "Govern",
@@ -122,6 +160,26 @@ export const roles: Role[] = [
       "Mentored 2 PMs to own roadmap delivery against go-to-market objectives.",
     ],
     metric: { value: "$25M+", label: "Federal business unlocked" },
+    diagram: {
+      caption: "A global file namespace whose durable layer is blocks in object storage, governed from one control plane — and taken into environments with no connectivity at all.",
+      lanes: [
+        {
+          label: "Data path",
+          steps: ["Filers at each site (NFS/SMB)", "Global namespace", "Blocks in object storage (AWS · Azure · GCP)"],
+          note: "Block storage underneath, file semantics on top. Internal to the product, never sold as a block service.",
+        },
+        {
+          label: "Control plane (CMS)",
+          steps: ["Config templates", "Inheritance-based RBAC", "Policy propagation across 80+ filers", "Health + lifecycle telemetry"],
+          note: "Onboarding went from 40+ manual steps to a template: 87% fewer steps, 98% faster.",
+        },
+        {
+          label: "Federal",
+          steps: ["GovCloud / air-gapped", "STS temporary credentials (60-min rotation)", "KMS", "Validated without normal connectivity"],
+          note: "The same product, with identity and key management designed for environments that assume the network is hostile or absent.",
+        },
+      ],
+    },
   },
   {
     layer: "Ship",
@@ -136,6 +194,16 @@ export const roles: Role[] = [
       "Ran the beta with Staples before opening it to the full Zephyr customer base, using a single demanding enterprise to find the failure modes before they became support tickets.",
     ],
     metric: { value: "100%", label: "User onboarding in 120 days" },
+    diagram: {
+      caption: "Test management turned into a DevOps signal: one view across requirements, builds, automation results and quality.",
+      lanes: [
+        {
+          label: "Maestro",
+          steps: ["Jira requirements", "Test plan + execution", "CI builds (Bamboo · Jenkins)", "Automation results (Selenium · UFT · Tricentis)", "Delivery dashboard"],
+          note: "The first product role of my career; the first time I shipped a pipeline view rather than a feature.",
+        },
+      ],
+    },
   },
 ]
 
