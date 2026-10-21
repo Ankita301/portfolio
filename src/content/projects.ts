@@ -219,14 +219,23 @@ export const projects: Project[] = [
     ],
     links: [
       {
-        label: "NetApp INSIGHT 2026 — Open Lakehouse on NetApp",
-        href: null,
-        note: "public breakout, Sept 29 – Oct 1, 2026",
+        label: "INSIGHT 2026 session — an open Iceberg lakehouse on StorageGRID",
+        href: "https://www.netapp.com/video/hFeLZeZkqbw/break-free-from-legacy-data-platforms-with-an-open-lakehouse-on-netapp/",
+        note: "NetApp video, recorded at INSIGHT, Sept 29 – Oct 1, 2026",
+      },
+      {
+        label: "StorageGRID 12.0 release notes — Branch buckets, S3 caching for AI/ML",
+        href: "https://docs.netapp.com/us-en/storagegrid-120/release-notes/whats-new.html",
+      },
+      {
+        label: "Forrester Wave: Object Storage Solutions, Q2 2026 — NetApp named a Leader",
+        href: "https://www.storagenewsletter.com/?p=303492",
+        note: "press coverage",
       },
       {
         label: "PRDs, pricing model, support exposure model",
         href: null,
-        note: "NetApp confidential — described here, not shown",
+        note: "NetApp confidential",
       },
     ],
   },
